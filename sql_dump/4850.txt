@@ -1,0 +1,93 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 13, 2012 at 08:35 PM
+-- Server version: 5.5.9
+-- PHP Version: 5.3.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `4850`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Requests`
+--
+
+CREATE TABLE `Requests` (
+  `report_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tech` int(4) NOT NULL COMMENT 'user_id',
+  `reporter` int(4) NOT NULL COMMENT 'user_id',
+  `description` longtext NOT NULL,
+  `location` varchar(200) NOT NULL,
+  `submissionDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `completionDate` timestamp NULL DEFAULT NULL,
+  `feedback` longtext,
+  `isRepaired` int(1) NOT NULL,
+  PRIMARY KEY (`report_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `requests`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Speciality`
+--
+
+CREATE TABLE `Speciality` (
+  `speciality_id` int(4) NOT NULL AUTO_INCREMENT,
+  `desc` varchar(100) NOT NULL,
+  `name` varchar(10) NOT NULL,
+  PRIMARY KEY (`speciality_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `speciality`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Techs`
+--
+
+CREATE TABLE `Techs` (
+  `user_id` int(4) NOT NULL,
+  `speciality_id` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `techs`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Users`
+--
+
+CREATE TABLE `Users` (
+  `user_id` int(4) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(20) NOT NULL,
+  `lastName` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(10) DEFAULT NULL,
+  `password` varchar(40) NOT NULL,
+  `role` enum('admin','tech','patron') NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `Users`
+--
