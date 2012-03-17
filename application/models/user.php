@@ -4,7 +4,7 @@
 		function validate() {
 			$this->db->where('email', $this->input->post('email'));
 			$this->db->where('password', sha1($this->input->post('password')));
-			$query = $this->db->get('users');
+			$query = $this->db->get('Users');
 			if ($query->num_rows == 1) {
 				return true;
 			}
@@ -18,7 +18,7 @@
 				'password' => sha1($this->input->post('password')),
 				'role' => 'patron'
 			);
-			$insert = $this->db->insert('users', $user_data);
+			$insert = $this->db->insert('Users', $user_data);
 			return $insert;
 		}
 
