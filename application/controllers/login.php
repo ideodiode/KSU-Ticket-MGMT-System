@@ -10,11 +10,14 @@ class Login extends CI_Controller {
 	function validate() {
 		$this->load->model('user');
 		$query = $this->user->validate();
-		
-		if($query) { // If the user enters valid information
-	
-		} else { // if the information entered is invalid
-			
+
+		if ($query) {// If the user enters valid information
+			$data = array('email' => $this->input->post('email'), 'logged_in' => true);
+			$this->session->set_userdata($data);
+			redirect('members');
+
+		} else {// if the information entered is invalid
+			redirect('login');
 		}
 	}
 
