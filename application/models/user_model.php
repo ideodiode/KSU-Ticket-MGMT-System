@@ -10,12 +10,12 @@
 			}
 		}
 
-		function create_user() {
+		function create_user($firstName, $lastName, $email, $password) {
 			$user_data = array(
-				'firstName' => $this->input->post('firstName'),
-				'lastName' => $this->input->post('lastName'),
-				'email' => $this->input->post('email'),
-				'password' => sha1($this->input->post('password')),
+				'firstName' => $firstName,
+				'lastName' => $lastName,
+				'email' => $email,
+				'password' => sha1($password),
 				'role' => 'patron'
 			);
 			$insert = $this->db->insert('Users', $user_data);
