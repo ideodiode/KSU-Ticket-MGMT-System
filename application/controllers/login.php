@@ -10,8 +10,8 @@
 		}
 
 		function validate() {
-			$this->load->model('user');
-			$query = $this->user->validate();
+			$this->load->model('User_model');
+			$query = $this->User_model->validate();
 
 			if ($query) {// If the user enters valid information
 				$data = array(
@@ -47,8 +47,8 @@
 			if ($this->form_validation->run() == FALSE) {// if information in invalid
 				$this->load->view('includes/template', array('main_content' => 'register'));
 			} else {// if the information submitted is valid
-				$this->load->model('user');
-				if ($query = $this->user->create_user()) {
+				$this->load->model('User_model');
+				if ($query = $this->User_model->create_user()) {
 					$data = array(
 						'message' => 'Thanks for registering! Can login below.',
 						'main_content' => 'login'
