@@ -3,17 +3,15 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2012 at 08:35 PM
+-- Generation Time: Mar 21, 2012 at 08:19 PM
 -- Server version: 5.5.9
 -- PHP Version: 5.3.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `4850` this is some new crap. something something something
--- Changed something for someone.
+-- Database: `4850`
 --
-
 
 -- --------------------------------------------------------
 
@@ -35,7 +33,7 @@ CREATE TABLE `Requests` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `requests`
+-- Dumping data for table `Requests`
 --
 
 
@@ -53,7 +51,7 @@ CREATE TABLE `Speciality` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `speciality`
+-- Dumping data for table `Speciality`
 --
 
 
@@ -69,7 +67,7 @@ CREATE TABLE `Techs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `techs`
+-- Dumping data for table `Techs`
 --
 
 
@@ -87,9 +85,15 @@ CREATE TABLE `Users` (
   `phone` varchar(10) DEFAULT NULL,
   `password` varchar(40) NOT NULL,
   `role` enum('admin','tech','patron') NOT NULL,
+  `authenticated` tinyint(1) NOT NULL,
+  `auth_key` varchar(15) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Users`
 --
+
+INSERT INTO `Users` VALUES(2, 'test', 'ben', 'ben@gmail.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, '');
+INSERT INTO `Users` VALUES(3, 'ben', 'ben', 'ben@ben.com', NULL, '92429d82a41e930486c6de5ebda9602d55c39986', 'patron', 0, '');
+INSERT INTO `Users` VALUES(4, 'asdf', 'asdf', 'asdf@asdf.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, '');
