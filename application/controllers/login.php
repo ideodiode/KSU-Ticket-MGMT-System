@@ -11,11 +11,12 @@ class Login extends CI_Controller {
 
 	function validate() {
 		$this->load->model('User_model');
-		$query = $this->User_model->validate();
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
 
-		if ($query) {// If the user enters valid information
+		if ($this->User_model->validate($email, $password)) {// If the user enters valid information
 			$data = array(
-				'email' => $this->input->post('email'),
+				'email' => $email,
 				'logged_in' => true
 			);
 			$this->session->set_userdata($data);
@@ -58,7 +59,7 @@ class Login extends CI_Controller {
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
 
-			if ($this->User_model->create_user($first, $last, $email, $password)) { // if creating the new user work 
+			if ($this->User_model->create_user($first, $last, $email, $password)) {// if creating the new user work
 				$data = array(
 					'message' => 'Thanks for registering! Can login below.',
 					'main_content' => 'login'
