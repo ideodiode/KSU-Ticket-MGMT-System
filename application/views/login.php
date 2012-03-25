@@ -7,8 +7,16 @@ if (isset($message)) {
 <div id="login">
 	<?php
 	echo form_open('login/validate');
-	echo form_input(array('name' => 'email', 'id' => 'email', 'placeholder' => 'Email Address'));
-	echo form_password('password', 'Password');
+	echo form_input(array(
+		'name' => 'email',
+		'id' => 'email',
+		'placeholder' => 'Email Address',
+		'value' => set_value('email', '')
+	));
+	echo form_password(array(
+		'name' => 'password',
+		'placeholder' => 'Password'
+	));
 	echo form_submit('login/submit', 'Login');
 	echo anchor('login/signup', "Create account");
 	echo form_close();
