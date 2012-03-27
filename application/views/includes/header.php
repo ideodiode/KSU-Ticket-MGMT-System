@@ -11,6 +11,5 @@
 			?></title>
 		<link rel="stylesheet" href="<?php echo base_url();?>/css/style.css" type="text/css" media="screen" />
         <link href="../../../css/style.css" rel="stylesheet" type="text/css" />
-</head>
 	</head>
 	<body>
