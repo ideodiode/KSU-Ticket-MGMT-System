@@ -1,5 +1,6 @@
 <?php
 
+
 	$this->load->view('includes/header');
 
 	if (isset($main_content)) {

@@ -1,17 +1,15 @@
 @charset "utf-8";
 /* CSS Document */
 
-head{
-	background-image: url(../_images/bg.gif);
-}
-
 body{
 	background-image: url(../_images/bg.gif);
+	/*background-image:url(../_images/bg3.png);*/
 }
 h1{
 	font-size: 72px;
 	color: #FFF;
 	font-family: "Lucida Console", Monaco, monospace;
+	
 }
 h2{
 	font-family: "Lucida Console", Monaco, monospace;
@@ -56,9 +54,6 @@ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.
 */
 .containerWrapper{
 	
-}
-.login{
-	background:#000;
 }
 .container{
 	width: 900px;
