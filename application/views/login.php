@@ -6,6 +6,7 @@ if (isset($message)) {
 ?>
 <div id="login">
 	<?php
+
 	echo form_open('login/validate');
 	echo form_input(array(
 		'name' => 'email',
@@ -20,6 +21,7 @@ if (isset($message)) {
 	echo form_submit('login/submit', 'Login');
 	echo anchor('login/signup', "Create account");
 	echo form_close();
+
 	?>
 </div>
 <?php
