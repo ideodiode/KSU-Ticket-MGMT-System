@@ -10,7 +10,8 @@
 		echo form_input(array(
 			'name' => 'email',
 			'id' => 'email',
-			'placeholder' => 'Email Address'
+			'placeholder' => 'Email Address',
+			'class' => 'login_class'
 		));
 		echo form_password('password', 'Password');
 		echo form_submit('login/submit', 'Login');
