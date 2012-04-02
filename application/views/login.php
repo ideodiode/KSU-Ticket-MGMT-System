@@ -26,6 +26,7 @@
                 <br /><br />
                 
                 <?php
+				
                 echo form_password(array(
                     'name' => 'password',
                     'placeholder' => 'Password'

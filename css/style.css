@@ -7,6 +7,7 @@ body{
 h1{
 	font-size: 44x;
 	color: #FFF;
+	/*color: #FEBC11;*/
 	font-family: "Lucida Console", Monaco, monospace;
 }
 h2{
@@ -33,7 +34,7 @@ p{
 	color: #999;
 }
 ul, li{
-	color: #FFF;
+	color: #FEBC11;
 	font-family: "Lucida Console", Monaco, monospace;
 	display: inline;
 	
@@ -84,7 +85,8 @@ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.
 	height:auto;
 }
 .contentLoginOrRegister{
-	background-color:#CCC;
+	/*background-color:#CCC;*/
+	background-color:#333;
 	width:850px;
 	height:400px;
 	margin: 0 auto;
