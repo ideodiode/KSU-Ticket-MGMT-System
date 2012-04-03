@@ -1,22 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
 
-<<<<<<< HEAD
-=======
-head{
-	background-image: url(../_images/bg.gif);
-}
->>>>>>> parent of 28ef7b9... styled registration page slightly
-
 body{
 	background-image: url(../_images/bg.gif);
 }
 h1{
-<<<<<<< HEAD
 	font-size: 44x;
-=======
-	font-size: 72px;
->>>>>>> parent of 28ef7b9... styled registration page slightly
 	color: #FFF;
 	/*color: #FEBC11;*/
 	font-family: "Lucida Console", Monaco, monospace;
@@ -44,15 +33,8 @@ p{
 	font-family: "Lucida Console", Monaco, monospace;
 	color: #999;
 }
-<<<<<<< HEAD
-
 ul, li{
 	color: #FEBC11;
-
-=======
-ul, li{
-	color: #FFF;
->>>>>>> parent of 28ef7b9... styled registration page slightly
 	font-family: "Lucida Console", Monaco, monospace;
 	display: inline;
 	
@@ -73,8 +55,6 @@ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.
 .containerWrapper{
 	
 }
-<<<<<<< HEAD
-
 .container{
 	width: 1000px;
 	margin: 0 auto;
@@ -85,23 +65,6 @@ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.
 }
 .nameHolder{
 	width: 350px;
-
-=======
-.login{
-	background:#000;
-}
-.container{
-	width: 900px;
-	margin: 0 auto;
-}
-.header{
-	width:900px;
-	height:100px;
-}
-.nameHolder{
-	color:#FFF
-	width: 350px;
->>>>>>> parent of 28ef7b9... styled registration page slightly
 	float: left;
 }
 .navBar{
@@ -113,8 +76,6 @@ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.
 .contentWrapper{
 	padding-top:25px;
 }
-<<<<<<< HEAD
-
 .contentIntro{
 	width:1000px;
 	text-align:center;
@@ -159,24 +120,6 @@ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.
 }
 .contentRegisterInput{
 	padding-left: 75px;
-
-=======
-.contentIntro{
-	width:900px;
-}
-.contentMain{
-	width: 900px;
-	height:auto;
-}
-.contentLogin{
-	background:#CCC;
-	width:250px;
-	height:250px;
-	margin: 0 auto;
-	border-radius: 15px;
-	padding: 5px;
-	text-align:center;
->>>>>>> parent of 28ef7b9... styled registration page slightly
 }
 label{
 	padding-top:10px;
@@ -185,8 +128,6 @@ label{
 .fieldbox{
 	
 }
-<<<<<<< HEAD
-
 .footer{
 	/*height: 150px;*/
 	width: 1000px;
@@ -196,24 +137,6 @@ label{
 .ksuCopyright{
 	width: 350px;
 	height:100px;
-
-=======
-#login{
-	background:#667;
-    padding:5px 10px;
-	border-radius: 5px;
-	cursor:pointer;
-}
-.footer{
-	height: 100px;
-	width: 900px;
-	margin: 0 auto;
-	margin-top:50px;
-}
-.ksuCopyright{
-	color:#FFF
-	width: 350px;
->>>>>>> parent of 28ef7b9... styled registration page slightly
 	float: left;
 }
 .footerBar{
