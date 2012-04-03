@@ -3,27 +3,27 @@
 class Tech extends User_Controller {
 
 	function index() {
-		$this->load->model('tech_model');
+		$this->load->model('user_model');
 		$data = array(
 			'main_content' => 'tech/index',
 			'title' => 'Tech Page',
-			'tech' => $this->user_model->get_info($this->session->userdata('email'))
+			'user' => $this->user_model->get_info($this->session->userdata('email'))
 		);
 		$this->load->view('includes/template', $data);
 	}
 
 	function update() {
-		$this->load->model('tech_model');
+		$this->load->model('user_model');
 
 		$data = array(
 			'main_content' => 'tech/update',
-			'tech' => $this->tech_model->get_info($this->session->userdata('email'))
+			'user' => $this->user_model->get_info($this->session->userdata('email'))
 		);
 		$this->load->view('includes/template', $data);
 
 	}
 
-	function updateInfo() {
+	function update_info() {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('firstName', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastName', 'Last Name', 'trim|required');
@@ -31,11 +31,11 @@ class Tech extends User_Controller {
 
 		if (!$this->form_validation->run()) {// if the validation fails
 		} else {
-			$this->load->model('tech_model');
+			$this->load->model('user_model');
 			if ($this->user_model->update_user($this->session->userdata('email'), $this->input->post('firstName'), $this->input->post('lastName'), $this->input->post('phone'))) {// if we successfully update the user information
 				$data = array(
 					'main_content' => 'tech/update',
-					'tech' => $this->tech_model->get_info($this->session->userdata('email')),
+					'user' => $this->tech_model->get_info($this->session->userdata('email')),
 					'message' => 'Successfully updated your info'
 				);
 				$this->load->view('includes/template', $data);
@@ -46,13 +46,19 @@ class Tech extends User_Controller {
 
 	}
 
-	function submit() {
 
-	}
-
-	function tableTest($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
+	function user_table($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
 		$this->load->library('tablebuilder');
-		$this->tablebuilder->display($sort_by, $sort_order, $offset, 'user_model');
+		$this->tablebuilder->display($sort_by, $sort_order, $offset, 'tech', 'user', $this->session->userdata('id'));
 	}
-
+	
+	function requests_table($sort_by = 'request_id', $sort_order = 'asc', $offset = 0) {
+		$this->load->library('tablebuilder');
+		$this->tablebuilder->display($sort_by, $sort_order, $offset, 'tech', 'requests', $this->session->userdata('id'));
+	}
+	
+	function logout(){
+		$this->session->sess_destroy();
+		redirect('main');
+	}
 }

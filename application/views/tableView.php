@@ -1,12 +1,12 @@
 	<div>
-		Found <?php echo $num_results; ?> users
+		Found <?php echo $num_results . " " . $table; ?> 
 	</div>
 	
 	<table>
 		<thead>
 			<?php foreach($fields as $field_name => $field_display): ?>
 			<th <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
-				<?php echo anchor("user/tableTest/$field_name/" .
+				<?php echo anchor($role . "/" . $table . "_table/$field_name/" .
 					(($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc') ,
 					$field_display); ?>
 			</th>

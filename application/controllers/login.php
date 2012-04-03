@@ -15,15 +15,17 @@ class Login extends CI_Controller {
 		$password = $this->input->post('password');
 
 		if ($this->user_model->validate($email, $password)) {// If the user enters valid information
+			$role = $this->user_model->get_role($email);
+			$id = $this->user_model->get_id($email);
 			$data = array(
 				'email' => $email,
-				'logged_in' => true
-				//'role' => $this->User_model->get_role($email);
+				'logged_in' => true,
+				'role' => $role,
+				'id' => $id
 			);
 			$this->session->set_userdata($data);
-			redirect('user');
 			//Get role and redirect to correct controller
-			/*switch ($data['role']) {
+			switch ($data['role']) {
 				case 'patron':
 					redirect('user');
 					break;
@@ -33,7 +35,7 @@ class Login extends CI_Controller {
 				case 'admin':
 					redirect('admin');
 					break;
-			}*/
+			}
 			
 		} else {// if the information entered is invalid
 			$data = array(
