@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+<<<<<<< HEAD
 head {
 	background-image: url(../_images/bg.gif);
 }
@@ -9,12 +10,20 @@ body {
 }
 h1 {
 	font-size: 72px;
+=======
+body{
+	background-image: url(../_images/bg.gif);
+}
+h1{
+	font-size: 44x;
+>>>>>>> upstream/master
 	color: #FFF;
+	/*color: #FEBC11;*/
 	font-family: "Lucida Console", Monaco, monospace;
 }
 h2 {
 	font-family: "Lucida Console", Monaco, monospace;
-	color: #FFF;
+	color: #FEBC11;
 }
 h3 {
 	font-size: 24px;
@@ -35,10 +44,16 @@ p {
 	font-family: "Lucida Console", Monaco, monospace;
 	color: #999;
 }
+<<<<<<< HEAD
 ul, li {
 	color: #FFF;
+=======
+ul, li{
+	color: #FEBC11;
+>>>>>>> upstream/master
 	font-family: "Lucida Console", Monaco, monospace;
 	display: inline;
+	
 }
 a:link, a:visited {
 	text-decoration: none;
@@ -56,6 +71,7 @@ a:hover, a:active, a:focus {mouse. */
 .containerWrapper {
 
 }
+<<<<<<< HEAD
 .login {
 	background: #000;
 }
@@ -69,11 +85,22 @@ a:hover, a:active, a:focus {mouse. */
 }
 .nameHolder {
 	color: #FFF width : 350px;
+=======
+.container{
+	width: 1000px;
+	margin: 0 auto;
+}
+.header{
+	width:1000px;
+	height:100px;
+}
+.nameHolder{
+	width: 350px;
+>>>>>>> upstream/master
 	float: left;
 }
 .navBar {
 	padding-top: 25px;
-	/*padding-left: 100px;*/
 	width: 400px;
 	float: right;
 	text-align: right;
@@ -81,6 +108,7 @@ a:hover, a:active, a:focus {mouse. */
 .contentWrapper {
 	padding-top: 25px;
 }
+<<<<<<< HEAD
 .contentIntro {
 	width: 900px;
 }
@@ -96,6 +124,52 @@ a:hover, a:active, a:focus {mouse. */
 	border-radius: 15px;
 	padding: 5px;
 	text-align: center;
+=======
+.contentIntro{
+	width:1000px;
+	text-align:center;
+}
+.contentMain{
+	width: 1000px;
+	height:auto;
+}
+.contentLoginOrRegister{
+	/*background-color:#CCC;*/
+	background-color:#333;
+	width:850px;
+	height:400px;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 5px;
+	/*text-align:center;*/
+}
+.contentLogin{
+	float:left;
+	width: 400px;
+	padding-left:20px;
+}
+.contentLoginInput{
+	padding-left: 50px;
+}
+.contentLoginSubmit{
+	padding-left: 50px;
+}
+.orBar{
+	float:left;
+	height:390px;
+	width: 10px;
+	border:#000;
+	margin: 0 auto;
+	text-align:center;
+	border-right: 1px solid #000;
+}
+.contentRegister{
+	float: right;
+	width : 400px;
+}
+.contentRegisterInput{
+	padding-left: 75px;
+>>>>>>> upstream/master
 }
 label {
 	padding-top: 10px;
@@ -104,6 +178,7 @@ label {
 .fieldbox {
 
 }
+<<<<<<< HEAD
 #login {
 	background: #667;
 	padding: 5px 10px;
@@ -118,6 +193,17 @@ label {
 }
 .ksuCopyright {
 	color: #FFF width : 350px;
+=======
+.footer{
+	/*height: 150px;*/
+	width: 1000px;
+	margin: 0 auto;
+	margin-top:45px;
+}
+.ksuCopyright{
+	width: 350px;
+	height:100px;
+>>>>>>> upstream/master
 	float: left;
 }
 .footerBar {
