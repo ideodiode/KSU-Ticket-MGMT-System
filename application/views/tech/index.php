@@ -9,8 +9,5 @@
 	<?php echo anchor('tech/submit', 'Submit service requests');?>
 </p>
 <p>
-	<?php echo anchor('tech/user_table', 'View User Database');?>
-</p>
-<p>
 	<?php echo anchor('tech/requests_table', 'View your request tickets');?>
 </p>

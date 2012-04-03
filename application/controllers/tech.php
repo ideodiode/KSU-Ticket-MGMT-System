@@ -35,7 +35,7 @@ class Tech extends User_Controller {
 			if ($this->user_model->update_user($this->session->userdata('email'), $this->input->post('firstName'), $this->input->post('lastName'), $this->input->post('phone'))) {// if we successfully update the user information
 				$data = array(
 					'main_content' => 'tech/update',
-					'user' => $this->tech_model->get_info($this->session->userdata('email')),
+					'user' => $this->user_model->get_info($this->session->userdata('email')),
 					'message' => 'Successfully updated your info'
 				);
 				$this->load->view('includes/template', $data);
