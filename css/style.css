@@ -1,22 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
 
-<<<<<<< HEAD
-head {
-	background-image: url(../_images/bg.gif);
-}
-body {
-	background-image: url(../_images/bg.gif);
-}
-h1 {
-	font-size: 72px;
-=======
+
 body{
 	background-image: url(../_images/bg.gif);
 }
 h1{
 	font-size: 44x;
->>>>>>> upstream/master
 	color: #FFF;
 	/*color: #FEBC11;*/
 	font-family: "Lucida Console", Monaco, monospace;
@@ -44,13 +34,10 @@ p {
 	font-family: "Lucida Console", Monaco, monospace;
 	color: #999;
 }
-<<<<<<< HEAD
-ul, li {
-	color: #FFF;
-=======
+
 ul, li{
 	color: #FEBC11;
->>>>>>> upstream/master
+
 	font-family: "Lucida Console", Monaco, monospace;
 	display: inline;
 	
@@ -71,21 +58,7 @@ a:hover, a:active, a:focus {mouse. */
 .containerWrapper {
 
 }
-<<<<<<< HEAD
-.login {
-	background: #000;
-}
-.container {
-	width: 900px;
-	margin: 0 auto;
-}
-.header {
-	width: 900px;
-	height: 100px;
-}
-.nameHolder {
-	color: #FFF width : 350px;
-=======
+
 .container{
 	width: 1000px;
 	margin: 0 auto;
@@ -96,7 +69,7 @@ a:hover, a:active, a:focus {mouse. */
 }
 .nameHolder{
 	width: 350px;
->>>>>>> upstream/master
+
 	float: left;
 }
 .navBar {
@@ -108,23 +81,7 @@ a:hover, a:active, a:focus {mouse. */
 .contentWrapper {
 	padding-top: 25px;
 }
-<<<<<<< HEAD
-.contentIntro {
-	width: 900px;
-}
-.contentMain {
-	width: 900px;
-	height: auto;
-}
-.contentLogin {
-	background: #CCC;
-	width: 250px;
-	height: 250px;
-	margin: 0 auto;
-	border-radius: 15px;
-	padding: 5px;
-	text-align: center;
-=======
+
 .contentIntro{
 	width:1000px;
 	text-align:center;
@@ -169,7 +126,7 @@ a:hover, a:active, a:focus {mouse. */
 }
 .contentRegisterInput{
 	padding-left: 75px;
->>>>>>> upstream/master
+
 }
 label {
 	padding-top: 10px;
@@ -178,22 +135,7 @@ label {
 .fieldbox {
 
 }
-<<<<<<< HEAD
-#login {
-	background: #667;
-	padding: 5px 10px;
-	border-radius: 5px;
-	cursor: pointer;
-}
-.footer {
-	height: 100px;
-	width: 900px;
-	margin: 0 auto;
-	margin-top: 50px;
-}
-.ksuCopyright {
-	color: #FFF width : 350px;
-=======
+
 .footer{
 	/*height: 150px;*/
 	width: 1000px;
@@ -203,7 +145,7 @@ label {
 .ksuCopyright{
 	width: 350px;
 	height:100px;
->>>>>>> upstream/master
+
 	float: left;
 }
 .footerBar {
