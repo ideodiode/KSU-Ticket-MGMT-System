@@ -1,63 +1,79 @@
 @charset "utf-8";
 /* CSS Document */
 
+<<<<<<< HEAD
+=======
+head{
+	background-image: url(../_images/bg.gif);
+}
+>>>>>>> parent of 28ef7b9... styled registration page slightly
 
 body{
 	background-image: url(../_images/bg.gif);
 }
 h1{
+<<<<<<< HEAD
 	font-size: 44x;
+=======
+	font-size: 72px;
+>>>>>>> parent of 28ef7b9... styled registration page slightly
 	color: #FFF;
 	/*color: #FEBC11;*/
 	font-family: "Lucida Console", Monaco, monospace;
 }
-h2 {
+h2{
 	font-family: "Lucida Console", Monaco, monospace;
 	color: #FEBC11;
 }
-h3 {
+h3{
 	font-size: 24px;
 	color: #999;
 	font-family: "Lucida Console", Monaco, monospace;
 }
-h4 {
+h4{
 	font-size: 24px;
 	color: #000;
 	font-family: "Lucida Console", Monaco, monospace;
 }
-h5 {
+h5{
 	font-size: 16px;
 	color: #555;
 	font-family: "Lucida Console", Monaco, monospace;
 }
-p {
+p{
 	font-family: "Lucida Console", Monaco, monospace;
 	color: #999;
 }
+<<<<<<< HEAD
 
 ul, li{
 	color: #FEBC11;
 
+=======
+ul, li{
+	color: #FFF;
+>>>>>>> parent of 28ef7b9... styled registration page slightly
 	font-family: "Lucida Console", Monaco, monospace;
 	display: inline;
 	
 }
 a:link, a:visited {
 	text-decoration: none;
-	color: #FFFFFF;
+	color:#FFFFFF;
 }
-a:hover, a:active, a:focus {mouse. */
-	text-decoration: underline;
+a:hover, a:active, a:focus {
+	mouse. */ text-decoration: underline;
 	color: #09F;
 }
 /*
- body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.contact {
- background-color: #09F;
- }
- */
-.containerWrapper {
-
+body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.contact {
+	background-color: #09F;
 }
+*/
+.containerWrapper{
+	
+}
+<<<<<<< HEAD
 
 .container{
 	width: 1000px;
@@ -70,17 +86,34 @@ a:hover, a:active, a:focus {mouse. */
 .nameHolder{
 	width: 350px;
 
+=======
+.login{
+	background:#000;
+}
+.container{
+	width: 900px;
+	margin: 0 auto;
+}
+.header{
+	width:900px;
+	height:100px;
+}
+.nameHolder{
+	color:#FFF
+	width: 350px;
+>>>>>>> parent of 28ef7b9... styled registration page slightly
 	float: left;
 }
-.navBar {
+.navBar{
 	padding-top: 25px;
 	width: 400px;
 	float: right;
-	text-align: right;
+	text-align:right;
 }
-.contentWrapper {
-	padding-top: 25px;
+.contentWrapper{
+	padding-top:25px;
 }
+<<<<<<< HEAD
 
 .contentIntro{
 	width:1000px;
@@ -127,14 +160,32 @@ a:hover, a:active, a:focus {mouse. */
 .contentRegisterInput{
 	padding-left: 75px;
 
+=======
+.contentIntro{
+	width:900px;
 }
-label {
-	padding-top: 10px;
+.contentMain{
+	width: 900px;
+	height:auto;
+}
+.contentLogin{
+	background:#CCC;
+	width:250px;
+	height:250px;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 5px;
+	text-align:center;
+>>>>>>> parent of 28ef7b9... styled registration page slightly
+}
+label{
+	padding-top:10px;
 	font-family: "Lucida Console", Monaco, monospace;
 }
-.fieldbox {
-
+.fieldbox{
+	
 }
+<<<<<<< HEAD
 
 .footer{
 	/*height: 150px;*/
@@ -146,23 +197,29 @@ label {
 	width: 350px;
 	height:100px;
 
+=======
+#login{
+	background:#667;
+    padding:5px 10px;
+	border-radius: 5px;
+	cursor:pointer;
+}
+.footer{
+	height: 100px;
+	width: 900px;
+	margin: 0 auto;
+	margin-top:50px;
+}
+.ksuCopyright{
+	color:#FFF
+	width: 350px;
+>>>>>>> parent of 28ef7b9... styled registration page slightly
 	float: left;
 }
-.footerBar {
+.footerBar{
 	padding-top: 25px;
 	padding-left: 100px;
 	width: 400px;
 	float: right;
-	text-align: right;
-}
-input[type=text], input[type=password] {
-	display: block;
-	margin: 0 0 1em 0;
-	padding: 1em;
-}
-input[type=submit], form a {
-	padding: 1em;
-}
-legend {
-	color: white;
+	text-align:right;
 }
