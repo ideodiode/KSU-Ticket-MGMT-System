@@ -5,7 +5,7 @@
 			$session = $this->session->all_userdata();
 			if (isset($session['logged_in']) && $session['logged_in']) {
 				$data = array(
-					'main_content' => 'userPage',
+					'main_content' => 'user/index',
 					'title' => 'User Page'
 				);
 				$this->load->view('includes/template', $data);
