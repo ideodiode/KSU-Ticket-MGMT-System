@@ -85,34 +85,43 @@ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.
 	height:auto;
 }
 .contentLoginOrRegister{
-	/*background-color:#CCC;*/
 	background-color:#333;
 	width:850px;
 	height:400px;
 	margin: 0 auto;
 	border-radius: 15px;
 	padding: 5px;
-	/*text-align:center;*/
 }
 .contentLogin{
 	float:left;
-	width: 400px;
+	width: 380px;
 	padding-left:20px;
 }
 .contentLoginInput{
 	padding-left: 50px;
+	width: 300px;
+	color:#FEBC11;
+	text-align:right;
 }
 .contentLoginSubmit{
 	padding-left: 50px;
+	
 }
+.submitButton{
+	text-align:left;
+	
+}
+
 .orBar{
 	float:left;
 	height:390px;
-	width: 10px;
+	/*width: 5px;*/
 	border:#000;
 	margin: 0 auto;
 	text-align:center;
-	border-right: 1px solid #000;
+	border-right: 1px solid #FFF;
+	padding-top: 10px;
+	/*padding-top:170px;*/
 }
 .contentRegister{
 	float: right;
@@ -120,6 +129,9 @@ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.
 }
 .contentRegisterInput{
 	padding-left: 75px;
+	width: 380px;
+	color:#FEBC11;
+	text-align:right;
 }
 label{
 	padding-top:10px;
