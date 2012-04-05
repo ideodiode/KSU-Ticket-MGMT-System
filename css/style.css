@@ -79,42 +79,59 @@ a:hover, a:active, a:focus {mouse. */
 	width: 1000px;
 	height: auto;
 }
-.contentLoginOrRegister {
-	/*background-color:#CCC;*/
-	background-color: #333;
-	width: 850px;
-	height: 400px;
+.contentLoginOrRegister{
+	background-color:#333;
+	width:850px;
+	height:370px;
+
 	margin: 0 auto;
 	border-radius: 15px;
 	padding: 5px;
-	/*text-align:center;*/
 }
-.contentLogin {
-	float: left;
-	width: 400px;
-	padding-left: 20px;
+.contentLogin{
+	float:left;
+	width: 380px;
+	padding-left:20px;
 }
-.contentLoginInput {
-	/* padding-left: 50px; */
+.contentLoginInput{
+	padding-left: 50px;
+	width: 300px;
+	color:#FEBC11;
+	text-align:right;
 }
-.contentLoginSubmit {
-	/* padding-left: 50px; */
+.contentLoginSubmit{
+	padding-left: 50px;
+	
 }
-.orBar {
-	float: left;
-	height: 390px;
-	width: 10px;
-	border: #000;
+.submitButton {
+	text-align:left;
+}
+#login/submit {
+	background-color:#000000;	
+	background:#000000;
+}
+.orBar{
+	float:left;
+	height:360px;
+	/*width: 5px;*/
+	border:#000;
 	margin: 0 auto;
-	text-align: center;
-	border-right: 1px solid #000;
+	text-align:center;
+	border-right: 1px solid #FFF;
+	padding-top: 10px;
+	/*padding-top:170px;*/
+
 }
 .contentRegister {
 	float: right;
 	width: 400px;
 }
-.contentRegisterInput {
-	/*	padding-left: 75px; */
+.contentRegisterInput{
+	padding-left: 75px;
+	width: 380px;
+	color:#FEBC11;
+	text-align:right;
+
 }
 label {
 	padding-top: 10px;
