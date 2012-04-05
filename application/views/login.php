@@ -14,34 +14,50 @@
             ?>
             
             <div class="contentLoginInput">
-            
+            <table cellpadding="5">
+            	<tr>
+            	<td>Email Address :</td>
+            	<td>
 				<?php
-                echo form_input(array(
+				echo form_input(array(
                     'name' => 'email',
                     'id' => 'email',
-                    'placeholder' => 'Your Email',
+                    'placeholder' => '',
                     'value' => set_value('email', '')
                 ));
                 ?>
-                <br /><br />
+                </td>
+           		</tr>
                 
-                <?php
-				
+           		<tr>
+           		<td>Password :</td>
+           		<td>
+				<?php
                 echo form_password(array(
                     'name' => 'password',
-                    'placeholder' => 'Password'
+                    'placeholder' => ''
                 ));
                 ?>
-                <br /><br />
-            
+           		</td>
+            	</tr>
+                <tr>
+                <td></td>
+                <td class="submitButton">
+                <?php
+                echo form_submit('login/submit', 'Login');
+				echo form_close();
+				?>
+                </td>
+                </td>
+            </table>            
             </div>
             
             <div class="contentLoginSubmit">
-            
+            	
 				<?php
-                echo form_submit('login/submit', 'Login');
+                //echo form_submit('login/submit', 'Login');
                 //echo anchor('login/signup', "Create account");
-                echo form_close();
+                //echo form_close();
                 ?>
             
             	<?php
@@ -49,15 +65,16 @@
 				?>
 				<h3 class="error"><?php echo $error;?></h3>
 				<?php endif;?>
-            	
+                <!--Verification for Account Creation goes here-->
+				<?php
+				echo validation_errors();
+				?>
             </div>
-        
-        
-    
+       		
     </div>
     
     <div class="orBar">
-    	<!--<p> OR </p>-->
+    	<!--<h1> OR </h1>-->
     </div>
     
     <div class="contentRegister">
@@ -70,60 +87,95 @@
             ?>
 			
 			<div class="contentRegisterInput">
-			
+			<table cellpadding="5">
+            <tr>
+            <td>First Name :</td>
+            <td>
             <?php
             echo form_input(array(
                 'name' => 'firstName',
-                'placeholder' => 'First Name',
+                'placeholder' => '',
                 'value' => set_value('firstName', '')
             ));
             ?>
-            <br /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>Last Name :</td>
+            <td>
             <?php
             echo form_input(array(
                 'name' => 'lastName',
-                'placeholder' => 'Last Name',
+                'placeholder' => '',
                 'value' => set_value('lastName', '')
             ));
             ?>
-            <br /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>Email Address :</td>
+            <td>
             <?php
             echo form_input(array(
                 'name' => 'email',
-                'placeholder' => 'Email Address',
+                'placeholder' => '',
                 'value' => set_value('email', '')
             ));
             ?>
-            <br /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>Phone Number :</td>
+            <td>
             <?php
             echo form_input(array(
                 'name' => 'phoneNumber',
-                'placeholder' => 'Phone Number',
+                'placeholder' => '',
                 'maxLength' => '15',
                 'value' => set_value('phoneNumber', '')
             ));
             ?>
-            <br /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>Password :</td>
+            <td>
             <?php
             echo form_password(array(
                 'name' => 'password',
-                'placeholder' => 'Password'
+                'placeholder' => ''
             ));
             ?>
-            <br /><br />
+            </td>
+            </tr>
+            <tr>
+            <td>Confirm password :</td>
+            <td>
             <?php
             echo form_password(array(
                 'name' => 'password1',
-                'placeholder' => 'Confirm password'
+                'placeholder' => ''
             ));
             ?>
-            <br /><br />
+            </td>
+            </tr>
+            <tr>
+         	<td></td>
+            <td class="submitButton">
             <?php
             echo form_submit('submit', 'Join');
             echo form_close();
-			echo validation_errors();
             ?>
+            </td>
+            </tr>
+            </table>
 			</div>
+            
+            <div class="registerError">
+            <?php
+			echo validation_errors();
+			?>
+            </div>
     
     </div>
     
