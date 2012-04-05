@@ -1,0 +1,99 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 21, 2012 at 08:19 PM
+-- Server version: 5.5.9
+-- PHP Version: 5.3.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `4850`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Requests`
+--
+
+CREATE TABLE `Requests` (
+  `report_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tech` int(4) NOT NULL COMMENT 'user_id',
+  `reporter` int(4) NOT NULL COMMENT 'user_id',
+  `description` longtext NOT NULL,
+  `location` varchar(200) NOT NULL,
+  `submissionDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `completionDate` timestamp NULL DEFAULT NULL,
+  `feedback` longtext,
+  `isRepaired` int(1) NOT NULL,
+  PRIMARY KEY (`report_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `Requests`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Speciality`
+--
+
+CREATE TABLE `Speciality` (
+  `speciality_id` int(4) NOT NULL AUTO_INCREMENT,
+  `desc` varchar(100) NOT NULL,
+  `name` varchar(10) NOT NULL,
+  PRIMARY KEY (`speciality_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `Speciality`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Techs`
+--
+
+CREATE TABLE `Techs` (
+  `user_id` int(4) NOT NULL,
+  `speciality_id` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Techs`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Users`
+--
+
+CREATE TABLE `Users` (
+  `user_id` int(4) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(20) NOT NULL,
+  `lastName` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(10) DEFAULT NULL,
+  `password` varchar(40) NOT NULL,
+  `role` enum('admin','tech','patron') NOT NULL,
+  `authenticated` tinyint(1) NOT NULL,
+  `auth_key` varchar(15) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` VALUES(2, 'test', 'ben', 'ben@gmail.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, '');
+INSERT INTO `Users` VALUES(3, 'ben', 'ben', 'ben@ben.com', NULL, '92429d82a41e930486c6de5ebda9602d55c39986', 'patron', 0, '');
+INSERT INTO `Users` VALUES(4, 'asdf', 'asdf', 'asdf@asdf.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, '');

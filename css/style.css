@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-image: url(../_images/bg.gif);
+	font-family: sans-serif;
+}
+h1 {
+	font-size: 35px;
+	color: #FFF;
+	/*color: #FEBC11;*/
+
+}
+h2 {
+	color: #FEBC11;
+}
+h3 {
+	font-size: 24px;
+	color: #999;
+}
+h4 {
+	font-size: 24px;
+	color: #000;
+}
+h5 {
+	font-size: 16px;
+	color: #555;
+}
+p {
+
+	color: #999;
+}
+ul, li {
+	color: #FEBC11;
+	display: inline;
+}
+a:link, a:visited {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a:hover, a:active, a:focus {mouse. */
+	text-decoration: underline;
+	color: #09F;
+}
+/*
+ body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.contact {
+ background-color: #09F;
+ }
+ */
+.containerWrapper {
+
+}
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+.header {
+	width: 1000px;
+	height: 100px;
+}
+.nameHolder {
+	width: 350px;
+	float: left;
+}
+.navBar {
+	padding-top: 25px;
+	width: 400px;
+	float: right;
+	text-align: right;
+}
+.contentWrapper {
+	padding-top: 25px;
+}
+.contentIntro {
+	width: 1000px;
+	text-align: center;
+}
+.contentMain {
+	width: 1000px;
+	height: auto;
+}
+.contentLoginOrRegister{
+	background-color:#333;
+	width:850px;
+	height:370px;
+
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 5px;
+}
+.contentLogin{
+	float:left;
+	width: 380px;
+	padding-left:20px;
+}
+.contentLoginInput{
+	padding-left: 50px;
+	width: 300px;
+	color:#FEBC11;
+	text-align:right;
+}
+.contentLoginSubmit{
+	padding-left: 50px;
+	
+}
+.submitButton {
+	text-align:left;
+}
+#login/submit {
+	background-color:#000000;	
+	background:#000000;
+}
+.orBar{
+	float:left;
+	height:360px;
+	/*width: 5px;*/
+	border:#000;
+	margin: 0 auto;
+	text-align:center;
+	border-right: 1px solid #FFF;
+	padding-top: 10px;
+	/*padding-top:170px;*/
+
+}
+.contentRegister {
+	float: right;
+	width: 400px;
+}
+.contentRegisterInput{
+	padding-left: 75px;
+	width: 380px;
+	color:#FEBC11;
+	text-align:right;
+
+}
+label {
+	padding-top: 10px;
+}
+.fieldbox {
+
+}
+.footer {
+	/*height: 150px;*/
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 45px;
+}
+.ksuCopyright {
+	width: 350px;
+	height: 100px;
+	float: left;
+}
+.footerBar {
+	padding-top: 25px;
+	padding-left: 100px;
+	width: 400px;
+	float: right;
+	text-align: right;
+}
+.error {
+	color: #FF0000;
+}
