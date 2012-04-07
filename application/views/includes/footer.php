@@ -1,4 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script><!-- Load jquery from google so caching is better -->
+
+</div><!--End of Container-->
+
 <div class="footer">
 	<div class="ksuCopyright">
     	<h2>
@@ -13,5 +16,7 @@
         </ul>
     </div><!--End of footerBar-->
 </div><!--End of footer-->
+
 </body>
+
 </html>
