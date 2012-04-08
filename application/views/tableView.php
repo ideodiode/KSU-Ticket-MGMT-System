@@ -30,8 +30,8 @@
 					
 					<?php $js = 'onKeyPress="return checkSubmit(event, this.id, this.value)"';
 					$id = $role._id;
-					$id = $result->;
-					echo form_input($id. " " . $field_name, $result->$field_name, $js); ?>
+					$id = $result->$id;
+					echo form_input($id, $result->$field_name, $js); ?>
 				</td>
 				<?php endforeach; ?>
 			</tr>
