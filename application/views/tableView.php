@@ -2,6 +2,15 @@
 		Found <?php echo $num_results . " " . $table; ?> 
 	</div>
 	
+	<?php if (strlen($pagination)): ?>
+	<div>
+		Pages: <?php echo $pagination; ?>
+	</div>
+	<?php endif; ?>
+	
+	<?php echo validation_errors(); ?>
+	<?php echo form_open($table. "_model/update"); ?>
+	
 	<table>
 		<thead>
 			<?php foreach($fields as $field_name => $field_display): ?>
@@ -18,7 +27,11 @@
 			<tr>
 				<?php foreach($fields as $field_name => $field_display): ?>
 				<td>
-					<?php echo $result->$field_name; ?>
+					
+					<?php $js = 'onKeyPress="return checkSubmit(event, this.id, this.value)"';
+					$id = $role._id;
+					$id = $result->;
+					echo form_input($id. " " . $field_name, $result->$field_name, $js); ?>
 				</td>
 				<?php endforeach; ?>
 			</tr>
@@ -26,6 +39,7 @@
 		</tbody>
 		
 	</table>
+	</form>
 	
 	<?php if (strlen($pagination)): ?>
 	<div>
@@ -38,4 +52,30 @@
 	<script type="text/javascript" charset="utf-8">
 		$('tr:odd').css('background', '#e3e3e3');
 		$('tr:even').css('background', '#FEBC11');
+		
+		function update(e, id, value)
+			{
+			var xmlhttp;
+			if (e && e.keyCode == 13){ 
+
+				if (window.XMLHttpRequest)
+				  {// code for IE7+, Firefox, Chrome, Opera, Safari
+				  xmlhttp=new XMLHttpRequest();
+				  }
+				else
+				  {// code for IE6, IE5
+				  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				  }
+				xmlhttp.onreadystatechange=function()
+				  {
+				  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+					document.getElementById("").innerHTML=xmlhttp.responseText;
+					document.getElementById("message").innerHTML=xmlhttp.responseText;
+					}
+				  }
+				xmlhttp.open("GET","update.php?id="+id+",val="+value,true);
+				xmlhttp.send();
+				}
+			}
 	</script>

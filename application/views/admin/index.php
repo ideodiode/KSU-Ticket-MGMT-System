@@ -6,9 +6,6 @@
 	<?php echo anchor('admin/update', 'Update your info');?>
 </p>
 <p>
-	<?php echo anchor('admin/submit', 'Submit service requests');?>
-</p>
-<p>
 	<?php echo anchor('admin/user_table', 'View User Database');?>
 </p>
 <p>

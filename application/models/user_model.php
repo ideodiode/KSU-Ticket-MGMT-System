@@ -66,25 +66,34 @@ class User_model extends CI_Model {
 		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'ID';
 		
 		// results query
-		if ($select_user==NULL)
-		$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
-			->from('Users')
-			->limit($limit, $offset)
-			->order_by($sort_by, $sort_order);
-		else
+		if ($select_user==NULL){
+			//count total results of query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('Users');
+			$tmp = $q->get()->result();
+			
+			//return subset of full query for pagination
 			$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
-			->from('Users')
-			->where('user_id', $select_user)
-			->limit($limit, $offset)
-			->order_by($sort_by, $sort_order);
-		$ret['rows'] = $q->get()->result();
-		
-		// count query
-		$q = $this->db->select('COUNT(*) as count', FALSE)
-			->from('Users');
-		
-		$tmp = $q->get()->result();
-		
+				->from('Users')
+				->limit($limit, $offset)
+				->order_by($sort_by, $sort_order);
+			$ret['rows'] = $q->get()->result();
+		}
+		else{
+			//count total results of query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('Users')
+				->where('user_id', $select_user);
+			$tmp = $q->get()->result();
+			
+			//return subset of full query for pagination
+			$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
+				->from('Users')
+				->where('user_id', $select_user)
+				->limit($limit, $offset)
+				->order_by($sort_by, $sort_order);
+			$ret['rows'] = $q->get()->result();
+		}
 		$ret['num_rows'] = $tmp[0]->count;
 		
 		return $ret;
@@ -95,7 +104,7 @@ class User_model extends CI_Model {
 			'user_id' => 'ID',
 			'firstName' => 'First Name',
 			'lastName' => 'Last Name',
-			'email' => 'email',
+			'email' => 'Email',
 			'phone' => 'Phone #',
 			'role' => 'Role'
 		);

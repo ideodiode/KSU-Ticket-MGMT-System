@@ -9,18 +9,11 @@ class Requests_model extends CI_Model {
 		//
 		$techID = 6; //Placeholder
 		
-		$this->load->helper('date');
-		$datestring = "Year: %Y Month: %m Day: %d - %h:%i %a";
-		$time = time();
-		
-		$submissionDate = mdate($datestring, $time);
-		
 		$requests_data = array(
 			'tech' => $techID,
 			'reporter' => $reporterID,
 			'description' => $description,
 			'location' => $location,
-			'submissionDate' => $submissionDate,
 			'isRepaired' => 1
 		);
 		$insert = $this->db->insert('Requests', $requests_data);
@@ -29,6 +22,12 @@ class Requests_model extends CI_Model {
 	
 
 	/*function update_request($email, $firstName, $lastName, $phone) {
+	
+		$this->load->helper('date');
+		$datestring = "%Y-%m-%d %h:%i:%a";
+		$time = time();
+		$submissionDate = mdate($datestring, $time);
+		
 		$user_data = array(
 			'firstName' => $firstName,
 			'lastName' => $lastName,
@@ -46,27 +45,41 @@ class Requests_model extends CI_Model {
 		$sort_columns = array('report_id', 'tech', 'reporter', 'description', 'location', 'submissionDate', 'completionDate', 'feedback', 'isRepaired');
 		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : "report_id";
 		
+		
+		
+		
 		// results query
-		if ($select_user==NULL)
+		if ($select_user==NULL){
+			//count total results of query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('Requests');
+			$tmp = $q->get()->result();
+			
+			//return subset of full query for pagination
 			$q = $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired')
 				->from('Requests')
 				->limit($limit, $offset)
 				->order_by($sort_by, $sort_order);
-		else
+		}
+		else{
+			//count total results of query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('Requests')
+				->where('tech', $select_user)
+				->or_where('reporter', $select_user);
+			$tmp = $q->get()->result();
+			
+			//return subset of full query for pagination
 			$q = $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired')
 				->from('Requests')
 				->where('tech', $select_user)
 				->or_where('reporter', $select_user)
 				->limit($limit, $offset)
 				->order_by($sort_by, $sort_order);
-	
+		}
+		
 		$ret['rows'] = $q->get()->result();
 		
-		// count query
-		$q = $this->db->select('COUNT(*) as count', FALSE)
-			->from('Requests');
-		
-		$tmp = $q->get()->result();
 		
 		$ret['num_rows'] = $tmp[0]->count;
 		
