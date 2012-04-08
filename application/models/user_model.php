@@ -44,7 +44,7 @@ class User_model extends CI_Model {
 	}
 
 	function get_info($email) {
-		$this->db->select('firstName, lastName, phone, email, role')->from('Users')->where('email', $email)->limit(1);
+		$this->db->select('firstName, lastName, phone, email, role, user_id')->from('Users')->where('email', $email)->limit(1);
 		return $this->db->get()->row();
 	}
 

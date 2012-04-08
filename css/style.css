@@ -161,3 +161,9 @@ label {
 .error {
 	color: #FF0000;
 }
+ul.menu li {
+	display: inline-table;
+	background: #ff0000;
+	padding: 10px;
+	
+}
