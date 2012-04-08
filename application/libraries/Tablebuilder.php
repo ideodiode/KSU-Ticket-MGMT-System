@@ -22,6 +22,7 @@ class Tablebuilder {
 		$data['results'] = $results['rows'];
 		$data['num_results'] = $results['num_rows'];
 		
+		
 		// pagination
 		$CI->load->library('pagination');
 		$config = array();

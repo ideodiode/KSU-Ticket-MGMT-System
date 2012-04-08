@@ -57,8 +57,5 @@ class Admin extends Admin_Controller {
 		$this->tablebuilder->display($sort_by, $sort_order, $offset, 'admin', 'requests', $this->session->userdata('id'));
 	}
 	
-	function logout(){
-		$this->session->sess_destroy();
-		redirect('main');
-	}
+	
 }

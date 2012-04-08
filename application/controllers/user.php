@@ -80,10 +80,7 @@ class User extends User_Controller {
 		}
 	}
 	
-	function logout(){
-		$this->session->sess_destroy();
-		redirect('main');
-	}
+
 	
 	function requests_table($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
 		$this->load->library('tablebuilder');
