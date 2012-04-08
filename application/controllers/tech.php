@@ -1,6 +1,6 @@
 <?php
 
-class Tech extends User_Controller {
+class Tech extends Tech_Controller {
 
 	function index() {
 		$this->load->model('user_model');
