@@ -10,17 +10,33 @@ class Login extends CI_Controller {
 	}
 
 	function validate() {
-		$this->load->model('User_model');
+		$this->load->model('user_model');
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 
-		if ($this->User_model->validate($email, $password)) {// If the user enters valid information
+		if ($this->user_model->validate($email, $password)) {// If the user enters valid information
+			$role = $this->user_model->get_role($email);
+			$id = $this->user_model->get_id($email);
 			$data = array(
 				'email' => $email,
-				'logged_in' => true
+				'logged_in' => true,
+				'role' => $role,
+				'id' => $id
 			);
 			$this->session->set_userdata($data);
-			redirect('user');
+			//Get role and redirect to correct controller
+			switch ($data['role']) {
+				case 'patron':
+					redirect('user');
+					break;
+				case 'tech':
+					redirect('tech');
+					break;
+				case 'admin':
+					redirect('admin');
+					break;
+			}
+			
 		} else {// if the information entered is invalid
 			$data = array(
 				'main_content' => 'login',

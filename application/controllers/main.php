@@ -9,6 +9,17 @@
 					'title' => 'User Page'
 				);
 				$this->load->view('includes/template', $data);
+				switch ($session['role']) {
+				case 'patron':
+					redirect('user');
+					break;
+				case 'tech':
+					redirect('tech');
+					break;
+				case 'admin':
+					redirect('admin');
+					break;
+				}
 			} else {
 				$data = array('main_content' => 'main');
 				$this->load->view('includes/template', $data);
