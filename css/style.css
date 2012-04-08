@@ -35,6 +35,7 @@ p {
 ul, li {
 	color: #FEBC11;
 	display: inline;
+	padding-right: 20px;
 }
 a:link, a:visited {
 	text-decoration: none;
@@ -152,14 +153,49 @@ a:hover, a:active, a:focus {mouse. */
 /*Style for index.php*/
 .loggedUser{
 }
+.topContainer{
+	height: 50px;
+}
+.welcome{
+	float:left;
+	width:350px;
+	
+}
+h3.welcome{
+	color:#FFF;
+}
+.userNavBar{
+	float:right;
+	width:450px;
+	margin-top:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-radius:10px;
+}
+ul.userNavBar{
+	text-align:end;
+}
+ul.userNavBar a{
+	color: #FFF;
+}
+ul.userNavBar a:hover, ul.userNavBar a:active, ul.userNavBar a:focus {
+	color: #09F;
+}
+li.userNavBar{
+	background:#333;
+	width: auto;
+	margin: 5px;
+}
+.bottomContainer{
+	
+}
 h4.loggedUser{
 	padding-left: 50px;
 }
 h4.loggedUser a:link, h4.loggedUser a:visited{
 	color: #FFF;
 }
-h4.loggedUser a:hover, h4.loggedUser a:active, h4.loggedUser a:focus {mouse. */
-	text-decoration: underline;
+h4.loggedUser a:hover, h4.loggedUser a:active, h4.loggedUser a:focus {
 	color: #09F;
 }
 /*Style for update.php*/

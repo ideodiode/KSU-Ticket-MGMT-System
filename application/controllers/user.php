@@ -23,7 +23,7 @@ class User extends User_Controller {
 
 	}
 
-	function updateInfo() {
+	function update_info() {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('firstName', 'First Name', 'trim|required');
 		$this->form_validation->set_rules('lastName', 'Last Name', 'trim|required');
@@ -45,13 +45,49 @@ class User extends User_Controller {
 		}
 
 	}
+	
+	//Validation and submission of requests to database
+	//	Scheduling/requestedTime not yet implemented
+	function submit_request() {
+		$this->load->library('form_validation');
+		$this->load->model('User_model');
+		$this->form_validation->set_rules('description', 'Description of issue', 'required');
+		$this->form_validation->set_rules('location', 'Location of issue', 'required');
+		$this->form_validation->set_rules('requestedTime', 'Requested appointment time', 'required');
 
-	function submit() {
+		if ($this->form_validation->run() == FALSE) {// if information in invalid
 
+			$this->load->view('includes/template', array('main_content' => 'user/submitRequest'));
+
+		} else {// if the information submitted is valid
+
+			$this->load->model('Requests_model');
+
+			// set all the values from the form that was submitted.
+			$description = $this->input->post('description');
+			$location = $this->input->post('location');
+			$requestedTime = $this->input->post('requestedTime');
+			
+			
+			$userID = $this->session->userdata('id');
+			if ($this->Requests_model->create_request($userID, $description, $location)) {
+			$data = array(
+					'main_content' => 'user/index',
+					'message' => 'Your request has been submitted succesfully'
+				);
+				$this->load->view('includes/template', $data);
+			}
+		}
 	}
-
-	function previous() {
-
+	
+	function logout(){
+		$this->session->sess_destroy();
+		redirect('main');
+	}
+	
+	function requests_table($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
+		$this->load->library('tablebuilder');
+		$this->tablebuilder->display($sort_by, $sort_order, $offset, 'user', 'requests', $this->session->userdata('id'));
 	}
 
 }

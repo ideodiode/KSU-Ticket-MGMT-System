@@ -1,6 +1,19 @@
 <?php
 
 class User_model extends CI_Model {
+
+	function get_role($email) {
+		$q = $this->db->select('role')->from('Users')->where('email', $email)->limit(1);
+		$row = $q->get()->row();
+		return $row->role;
+	}
+	
+	function get_id($email) {
+		$q = $this->db->select('user_id')->from('Users')->where('email', $email)->limit(1);
+		$row = $q->get()->row();
+		return $row->user_id;
+	}
+
 	function validate($email, $password) {
 		$this->db->where('email', $email);
 		$this->db->where('password', sha1($password));
@@ -43,6 +56,50 @@ class User_model extends CI_Model {
 		);
 		$this->db->where('email', $email);
 		return $this->db->update('Users', $user_data);
+	}
+	
+	//Search used by Tablebuilder class to pull data for paginated tables
+	function search($limit, $offset, $sort_by, $sort_order, $select_user) {		
+		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
+		
+		$sort_columns = array('user_id', 'firstName', 'lastName', 'email', 'phone', 'role');
+		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'ID';
+		
+		// results query
+		if ($select_user==NULL)
+		$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
+			->from('Users')
+			->limit($limit, $offset)
+			->order_by($sort_by, $sort_order);
+		else
+			$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
+			->from('Users')
+			->where('user_id', $select_user)
+			->limit($limit, $offset)
+			->order_by($sort_by, $sort_order);
+		$ret['rows'] = $q->get()->result();
+		
+		// count query
+		$q = $this->db->select('COUNT(*) as count', FALSE)
+			->from('Users');
+		
+		$tmp = $q->get()->result();
+		
+		$ret['num_rows'] = $tmp[0]->count;
+		
+		return $ret;
+	}
+	
+	function display_fields() {
+		$fields = array(
+			'user_id' => 'ID',
+			'firstName' => 'First Name',
+			'lastName' => 'Last Name',
+			'email' => 'email',
+			'phone' => 'Phone #',
+			'role' => 'Role'
+		);
+		return $fields;
 	}
 
 }
