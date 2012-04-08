@@ -5,7 +5,7 @@ if (isset($message)) {
 	echo '<h2>' . $message . '</h2>';
 }
 
-echo form_open('user/update_info');
+echo form_open('user/updateInfo');
 
 echo form_input(array(
 	'name' => 'firstName',

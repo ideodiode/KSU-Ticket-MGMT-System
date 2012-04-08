@@ -37,4 +37,5 @@
 
 	<script type="text/javascript" charset="utf-8">
 		$('tr:odd').css('background', '#e3e3e3');
+		$('tr:even').css('background', '#FEBC11');
 	</script>
