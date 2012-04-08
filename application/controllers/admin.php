@@ -1,6 +1,6 @@
 <?php
 
-class Admin extends User_Controller {
+class Admin extends Admin_Controller {
 
 	function index() {
 		$this->load->model('user_model');
