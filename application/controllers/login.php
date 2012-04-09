@@ -14,7 +14,7 @@ class Login extends CI_Controller {
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 
-		if ($this->user_model->validate($email, $password)) {// If the user enters valid information
+		if ($this->user_model->validate($email, $password)) {// If the user enters valid information to login
 			$role = $this->user_model->get_role($email);
 			$id = $this->user_model->get_id($email);
 			$data = array(
