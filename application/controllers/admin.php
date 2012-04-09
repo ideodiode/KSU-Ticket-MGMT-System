@@ -1,6 +1,6 @@
 <?php
 
-class Admin extends User_Controller {
+class Admin extends Admin_Controller {
 
 	function index() {
 		$this->load->model('user_model');
@@ -57,8 +57,5 @@ class Admin extends User_Controller {
 		$this->tablebuilder->display($sort_by, $sort_order, $offset, 'admin', 'requests', $this->session->userdata('id'));
 	}
 	
-	function logout(){
-		$this->session->sess_destroy();
-		redirect('main');
-	}
+	
 }

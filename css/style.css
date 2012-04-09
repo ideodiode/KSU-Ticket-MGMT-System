@@ -4,6 +4,7 @@
 body {
 	background-image: url(../_images/bg.gif);
 	font-family: sans-serif;
+	color: white;
 }
 /*White*/
 h1 {
@@ -70,7 +71,6 @@ a:hover, a:active, a:focus {mouse. */
 	float: right;
 	text-align: right;
 }
-
 /*Style for footer.php*/
 .footer {
 	/*height: 150px;*/
@@ -134,11 +134,11 @@ a:hover, a:active, a:focus {mouse. */
 }
 .contentRegister {
 	float: right;
-	width: 400px;
+	width: 390px;
 }
 .contentRegisterInput{
 	padding-left: 75px;
-	width: 380px;
+	width: 400px;
 	color:#FEBC11;
 	text-align:right;
 }
@@ -147,6 +147,11 @@ a:hover, a:active, a:focus {mouse. */
 }
 .error {
 	color: #FF0000;
+}
+/*Style for contact.php*/
+.contact{
+	color:#FEBC11;
+	padding-left:40px;
 }
 
 /*User's page*/
@@ -158,25 +163,21 @@ a:hover, a:active, a:focus {mouse. */
 }
 .welcome{
 	float:left;
-	width:350px;
-	
-}
-h3.welcome{
-	color:#FFF;
+	width:410px;
 }
 .userNavBar{
 	float:right;
-	width:450px;
-	margin-top:10px;
-	padding-top:10px;
-	padding-bottom:10px;
+	width:525px;
+	
+	padding-top:6px;
+	padding-bottom:6px;
 	border-radius:10px;
 }
 ul.userNavBar{
-	text-align:end;
+	
 }
 ul.userNavBar a{
-	color: #FFF;
+	
 }
 ul.userNavBar a:hover, ul.userNavBar a:active, ul.userNavBar a:focus {
 	color: #09F;
@@ -185,18 +186,10 @@ li.userNavBar{
 	background:#333;
 	width: auto;
 	margin: 5px;
+	padding-left: 20px;
 }
 .bottomContainer{
-	
-}
-h4.loggedUser{
-	padding-left: 50px;
-}
-h4.loggedUser a:link, h4.loggedUser a:visited{
-	color: #FFF;
-}
-h4.loggedUser a:hover, h4.loggedUser a:active, h4.loggedUser a:focus {
-	color: #09F;
+	padding-top:20px;
 }
 /*Style for update.php*/
 .updateUser{
@@ -205,4 +198,38 @@ h4.loggedUser a:hover, h4.loggedUser a:active, h4.loggedUser a:focus {
 .updateInput{
 	padding-left: 50px;
 	color: #FEBC11;
+}
+/*Replaced, can be deleted
+ul.menu li {
+	display: inline-table;
+	background: #ff0000;
+	padding: 10px;
+}
+*/
+/*Style for submit*/
+.submitRequest {
+	color: #FEBC11;
+}
+
+/*Tech's page*/
+/*Style for index.php
+Using style for user's index
+*/
+.loggedTech{	
+}
+/*Style for update.php
+Using style of user's update
+*/
+.updateTech{
+}
+
+/*Admin's page*/
+/*Style for index.php*/
+.loggedAdmin{
+	
+}
+/*Style for admin.php
+Using user's update
+*/
+.updateAdmin{
 }
