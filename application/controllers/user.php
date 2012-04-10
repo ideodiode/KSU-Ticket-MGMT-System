@@ -16,7 +16,8 @@ class User extends User_Controller {
 		$this->load->model('user_model');
 
 		$data = array(
-			'main_content' => 'user/update',
+			'main_content' => 'user/index',
+			'secondary_content' => 'update',
 			'user' => $this->user_model->get_info($this->session->userdata('email'))
 		);
 		$this->load->view('includes/template', $data);

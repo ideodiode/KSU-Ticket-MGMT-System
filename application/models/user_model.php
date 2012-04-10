@@ -17,6 +17,7 @@ class User_model extends CI_Model {
 	function validate($email, $password) {
 		$this->db->where('email', $email);
 		$this->db->where('password', sha1($password));
+		$this->db->where('authenticated', '1'); // Has the user authenticated their email?
 		$query = $this->db->get('Users');
 		if ($query->num_rows == 1) {
 			return true;
