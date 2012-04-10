@@ -63,7 +63,7 @@ class Login extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE) {// if information in invalid
 
-			$this->load->view('includes/template', array('main_content' => 'register'));
+			$this->load->view('includes/template', array('main_content' => 'login'));
 
 		} else {// if the information submitted is valid
 
