@@ -23,7 +23,7 @@
 					<div class="navBar">
 						<ul>
 							<li>
-								Contact IT
+								<?php echo anchor('contact', 'Contact IT'); ?>
 							</li>
 							<li>
 								<?php
