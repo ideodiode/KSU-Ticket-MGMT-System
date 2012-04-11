@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+
+<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><?php
 		if (isset($title)) {
@@ -22,9 +23,7 @@
 					</div><!--End of nameHolder-->
 					<div class="navBar">
 						<ul>
-							<li>
-								Contact IT
-							</li>
+							<li>Contact IT</li>
 							<li>
 								<?php
 								if ($this -> session -> userdata('logged_in')) {
@@ -34,4 +33,4 @@
 							</li>
 						</ul>
 					</div><!--End of navBar-->
-				</div><!--End of header-->
+</div><!--End of header-->

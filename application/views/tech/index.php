@@ -1,5 +1,18 @@
-<h2>What do you need to do?</h2>
-<p><?php echo anchor('tech/logout', 'Log Out');?></p>
-<p><?php echo anchor('tech/update', 'Update your info');?></p>
-<p><?php echo anchor('tech/submit', 'Submit service requests');?></p>
-<p><?php echo anchor('tech/requests_table', 'View your request tickets');?></p>
+<div class="loggedTech">    
+    
+    <div class="topContainer">
+    	<div class="welcome">
+        <h1>Welcome, + tech(grey)</h1>
+        </div>
+        <div class="userNavBar">
+        <ul class="userNavBar">
+                    <li class ="userNavBar"><?php echo anchor('tech/update', 'Update profile');?></li>
+                    <li class ="userNavBar"><?php echo anchor('tech/requests_table', 'Requests history');?></li>
+        </ul>
+        </div>
+	</div>
+	
+    <div class="bottomContainer">
+    </div>
+    
+</div>
