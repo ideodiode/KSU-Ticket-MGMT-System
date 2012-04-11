@@ -1,6 +1,6 @@
 <div class="updateTech">
 
-    <h1>Update your information</h1>
+  	<h1>Update your information</h1>
     
 	<?php
     if (isset($message)) {
@@ -69,3 +69,4 @@
 	</div>
     
 </div>
+

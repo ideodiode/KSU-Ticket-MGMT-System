@@ -77,6 +77,8 @@ a:hover, a:active, a:focus {mouse. */
 	width: 1000px;
 	margin: 0 auto;
 	margin-top: 45px;
+	bottom: 0;
+	position: fixed;
 }
 .ksuCopyright {
 	width: 350px;
