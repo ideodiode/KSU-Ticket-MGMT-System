@@ -89,3 +89,4 @@ class User extends User_Controller {
 	}
 
 }
+>>>>>>> upstream/master

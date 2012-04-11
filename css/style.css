@@ -6,34 +6,37 @@ body {
 	font-family: sans-serif;
 	color: white;
 }
+/*White*/
 h1 {
 	font-size: 35px;
 	color: #FFF;
-	/*color: #FEBC11;*/
-
 }
+/*KSU Gold*/
 h2 {
 	color: #FEBC11;
 }
+/*Grey-ish*/
 h3 {
-	font-size: 24px;
+	font-size: 28px;
 	color: #999;
 }
+/*White*/
 h4 {
-	font-size: 24px;
-	color: #000;
+	font-size: 20px;
+	color: #FFF;
 }
 h5 {
 	font-size: 16px;
 	color: #555;
 }
+/*Grey-ish*/
 p {
-
 	color: #999;
 }
 ul, li {
 	color: #FEBC11;
 	display: inline;
+	padding-right: 20px;
 }
 a:link, a:visited {
 	text-decoration: none;
@@ -48,13 +51,12 @@ a:hover, a:active, a:focus {mouse. */
  background-color: #09F;
  }
  */
-.containerWrapper {
-
-}
 .container {
 	width: 1000px;
 	margin: 0 auto;
 }
+
+/*Style for header.php*/
 .header {
 	width: 1000px;
 	height: 100px;
@@ -69,77 +71,7 @@ a:hover, a:active, a:focus {mouse. */
 	float: right;
 	text-align: right;
 }
-.contentWrapper {
-	padding-top: 25px;
-}
-.contentIntro {
-	width: 1000px;
-	text-align: center;
-}
-.contentMain {
-	width: 1000px;
-	height: auto;
-}
-.contentLoginOrRegister{
-	background-color:#333;
-	width:850px;
-	height:370px;
-
-	margin: 0 auto;
-	border-radius: 15px;
-	padding: 5px;
-}
-.contentLogin{
-	float:left;
-	width: 380px;
-	padding-left:20px;
-}
-.contentLoginInput{
-	padding-left: 50px;
-	width: 300px;
-	color:#FEBC11;
-	text-align:right;
-}
-.contentLoginSubmit{
-	padding-left: 50px;
-	
-}
-.submitButton {
-	text-align:left;
-}
-#login/submit {
-	background-color:#000000;	
-	background:#000000;
-}
-.orBar{
-	float:left;
-	height:360px;
-	/*width: 5px;*/
-	border:#000;
-	margin: 0 auto;
-	text-align:center;
-	border-right: 1px solid #FFF;
-	padding-top: 10px;
-	/*padding-top:170px;*/
-
-}
-.contentRegister {
-	float: right;
-	width: 400px;
-}
-.contentRegisterInput{
-	padding-left: 75px;
-	width: 380px;
-	color:#FEBC11;
-	text-align:right;
-
-}
-label {
-	padding-top: 10px;
-}
-.fieldbox {
-
-}
+/*Style for footer.php*/
 .footer {
 	/*height: 150px;*/
 	width: 1000px;
@@ -160,12 +92,146 @@ label {
 	float: right;
 	text-align: right;
 }
+
+/*Style for main.php*/
+.contentIntro {
+	width: 1000px;
+	text-align: center;
+}
+
+/*Style for login.php & register.php*/
+.contentLoginOrRegister{
+	background-color:#333;
+	width:850px;
+	height:370px;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 5px;
+}
+.contentLogin{
+	float:left;
+	width: 380px;
+	padding-left:20px;
+}
+.contentLoginInput{
+	padding-left: 50px;
+	width: 300px;
+	color:#FEBC11;
+	text-align:right;
+}
+.contentLoginSubmit{
+	padding-left: 50px;
+	
+}
+.orBar{
+	float:left;
+	height:360px;
+	/*width: 5px;*/
+	border:#000;
+	margin: 0 auto;
+	text-align:center;
+	border-right: 1px solid #FFF;
+	padding-top: 10px;
+	/*padding-top:170px;*/
+}
+.contentRegister {
+	float: right;
+	width: 390px;
+}
+.contentRegisterInput{
+	padding-left: 75px;
+	width: 400px;
+	color:#FEBC11;
+	text-align:right;
+}
+.submitButton {
+	text-align:left;
+}
 .error {
 	color: #FF0000;
 }
+/*Style for contact.php*/
+.contact{
+	color:#FEBC11;
+	padding-left:40px;
+}
+
+/*User's page*/
+/*Style for index.php*/
+.loggedUser{
+}
+.topContainer{
+	height: 50px;
+}
+.welcome{
+	float:left;
+	width:410px;
+}
+.userNavBar{
+	float:right;
+	width:525px;
+	
+	padding-top:6px;
+	padding-bottom:6px;
+	border-radius:10px;
+}
+ul.userNavBar{
+	
+}
+ul.userNavBar a{
+	
+}
+ul.userNavBar a:hover, ul.userNavBar a:active, ul.userNavBar a:focus {
+	color: #09F;
+}
+li.userNavBar{
+	background:#333;
+	width: auto;
+	margin: 5px;
+	padding-left: 20px;
+}
+.bottomContainer{
+	padding-top:20px;
+}
+/*Style for update.php*/
+.updateUser{
+	
+}
+.updateInput{
+	padding-left: 50px;
+	color: #FEBC11;
+}
+/*Replaced, can be deleted
 ul.menu li {
 	display: inline-table;
 	background: #ff0000;
 	padding: 10px;
+}
+*/
+/*Style for submit*/
+.submitRequest {
+	color: #FEBC11;
+}
+
+/*Tech's page*/
+/*Style for index.php
+Using style for user's index
+*/
+.loggedTech{	
+}
+/*Style for update.php
+Using style of user's update
+*/
+.updateTech{
+}
+
+/*Admin's page*/
+/*Style for index.php*/
+.loggedAdmin{
 	
+}
+/*Style for admin.php
+Using user's update
+*/
+.updateAdmin{
 }
