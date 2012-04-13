@@ -7,7 +7,7 @@ class User_model extends CI_Model {
 		$row = $q->get()->row();
 		return $row->role;
 	}
-	
+
 	function get_id($email) {
 		$q = $this->db->select('user_id')->from('Users')->where('email', $email)->limit(1);
 		$row = $q->get()->row();
@@ -17,7 +17,8 @@ class User_model extends CI_Model {
 	function validate($email, $password) {
 		$this->db->where('email', $email);
 		$this->db->where('password', sha1($password));
-		$this->db->where('authenticated', '1'); // Has the user authenticated their email?
+		$this->db->where('authenticated', '1');
+		// Has the user authenticated their email?
 		$query = $this->db->get('Users');
 		if ($query->num_rows == 1) {
 			return true;
@@ -49,6 +50,12 @@ class User_model extends CI_Model {
 		return $this->db->get()->row();
 	}
 
+	function get_info_from_id($id) {
+		$q = $this->db->select('email')->from('Users')->where('user_id', $id)->limit(1);
+		$email = $this->db->get()->row()->email;
+		return $this->get_info($email);
+	}
+
 	function update_user($email, $firstName, $lastName, $phone) {
 		$user_data = array(
 			'firstName' => $firstName,
@@ -58,39 +65,38 @@ class User_model extends CI_Model {
 		$this->db->where('email', $email);
 		return $this->db->update('Users', $user_data);
 	}
-	
+
 	//Search used by Tablebuilder class to pull data for paginated tables
-	function search($limit, $offset, $sort_by, $sort_order, $select_user) {		
+	function search($limit, $offset, $sort_by, $sort_order, $select_user) {
 		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
-		
-		$sort_columns = array('user_id', 'firstName', 'lastName', 'email', 'phone', 'role');
+
+		$sort_columns = array(
+			'user_id',
+			'firstName',
+			'lastName',
+			'email',
+			'phone',
+			'role'
+		);
 		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'ID';
-		
+
 		// results query
-		if ($select_user==NULL)
-		$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
-			->from('Users')
-			->limit($limit, $offset)
-			->order_by($sort_by, $sort_order);
+		if ($select_user == NULL)
+			$q = $this->db->select('user_id, firstName, lastName, email, phone, role')->from('Users')->limit($limit, $offset)->order_by($sort_by, $sort_order);
 		else
-			$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
-			->from('Users')
-			->where('user_id', $select_user)
-			->limit($limit, $offset)
-			->order_by($sort_by, $sort_order);
+			$q = $this->db->select('user_id, firstName, lastName, email, phone, role')->from('Users')->where('user_id', $select_user)->limit($limit, $offset)->order_by($sort_by, $sort_order);
 		$ret['rows'] = $q->get()->result();
-		
+
 		// count query
-		$q = $this->db->select('COUNT(*) as count', FALSE)
-			->from('Users');
-		
+		$q = $this->db->select('COUNT(*) as count', FALSE)->from('Users');
+
 		$tmp = $q->get()->result();
-		
+
 		$ret['num_rows'] = $tmp[0]->count;
-		
+
 		return $ret;
 	}
-	
+
 	function display_fields() {
 		$fields = array(
 			'user_id' => 'ID',
