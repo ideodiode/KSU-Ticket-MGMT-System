@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 21, 2012 at 08:19 PM
+-- Generation Time: Apr 13, 2012 at 08:03 PM
 -- Server version: 5.5.9
 -- PHP Version: 5.3.6
 
@@ -29,13 +29,43 @@ CREATE TABLE `Requests` (
   `completionDate` timestamp NULL DEFAULT NULL,
   `feedback` longtext,
   `isRepaired` int(1) NOT NULL,
-  PRIMARY KEY (`report_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`report_id`),
+  KEY `tech` (`tech`),
+  KEY `reporter` (`reporter`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `Requests`
 --
 
+INSERT INTO `Requests` VALUES(1, 1, 1, '1', 'ADFJK', '2012-04-03 21:00:39', '2012-04-03 21:00:39', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Schedule`
+--
+
+CREATE TABLE `Schedule` (
+  `id` tinyint(5) NOT NULL AUTO_INCREMENT,
+  `user_id` tinyint(4) NOT NULL,
+  `day_of_week` enum('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday') NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+
+--
+-- Dumping data for table `Schedule`
+--
+
+INSERT INTO `Schedule` VALUES(7, 12, 'Sunday', '00:00:00', '00:00:00');
+INSERT INTO `Schedule` VALUES(8, 12, 'Monday', '00:00:00', '00:00:00');
+INSERT INTO `Schedule` VALUES(9, 12, 'Tuesday', '00:00:00', '00:00:00');
+INSERT INTO `Schedule` VALUES(10, 12, 'Wednesday', '00:00:00', '00:00:00');
+INSERT INTO `Schedule` VALUES(11, 12, 'Thursday', '00:00:00', '00:00:00');
+INSERT INTO `Schedule` VALUES(12, 12, 'Friday', '00:00:00', '00:00:00');
+INSERT INTO `Schedule` VALUES(13, 12, 'Saturday', '00:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -63,7 +93,8 @@ CREATE TABLE `Speciality` (
 
 CREATE TABLE `Techs` (
   `user_id` int(4) NOT NULL,
-  `speciality_id` int(4) NOT NULL
+  `speciality_id` int(4) NOT NULL,
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -87,13 +118,30 @@ CREATE TABLE `Users` (
   `role` enum('admin','tech','patron') NOT NULL,
   `authenticated` tinyint(1) NOT NULL,
   `auth_key` varchar(15) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `Users`
 --
 
 INSERT INTO `Users` VALUES(2, 'test', 'ben', 'ben@gmail.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, '');
-INSERT INTO `Users` VALUES(3, 'ben', 'ben', 'ben@ben.com', NULL, '92429d82a41e930486c6de5ebda9602d55c39986', 'patron', 0, '');
+INSERT INTO `Users` VALUES(3, 'ben', 'ben', 'ben@ben.com', NULL, '92429d82a41e930486c6de5ebda9602d55c39986', 'tech', 0, '');
 INSERT INTO `Users` VALUES(4, 'asdf', 'asdf', 'asdf@asdf.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, '');
+INSERT INTO `Users` VALUES(7, 'John', 'Smith', 'jsmith@gmail.com', '1234567890', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, 'tmedwgDKAgdzWIs');
+INSERT INTO `Users` VALUES(8, '', '', 'user@user.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, '');
+INSERT INTO `Users` VALUES(10, '', '', 'admin@admin.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'admin', 1, '');
+INSERT INTO `Users` VALUES(12, '', '', 'tech@tech.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'tech', 1, '');
+INSERT INTO `Users` VALUES(13, 'bensmcc', 'bensmcc', 'bensmcc+3@gmail.com', '', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, 'j8jxJDtrd9CENsj');
+INSERT INTO `Users` VALUES(14, 'ben', 'mcc', 'bensmcc+6@gmail.com', '1234567890', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 1, '4iFsacMiPLRA68O');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Techs`
+--
+ALTER TABLE `Techs`
+  ADD CONSTRAINT `Techs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
