@@ -1,6 +1,6 @@
-<div class="updateTech">
+<div class="updateUser">
 
-  	<h1>Update your information</h1>
+  	<h1>test</h1>
     
 	<?php
     if (isset($message)) {

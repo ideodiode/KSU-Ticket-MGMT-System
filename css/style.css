@@ -195,10 +195,11 @@ li.userNavBar{
 }
 /*Style for update.php*/
 .updateUser{
-	
+	padding-bottom:50px;
 }
 .updateInput{
 	padding-left: 50px;
+	padding-bottom:50px;
 	color: #FEBC11;
 }
 /*Replaced, can be deleted
@@ -228,10 +229,14 @@ Using style of user's update
 /*Admin's page*/
 /*Style for index.php*/
 .loggedAdmin{
-	
 }
 /*Style for admin.php
 Using user's update
 */
 .updateAdmin{
+}
+
+/*Style for tableViews*/
+.displayTable{
+	padding-top:50px;	
 }
