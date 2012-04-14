@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class Login extends CI_Controller {
 
 	function index() {
@@ -26,17 +28,17 @@ class Login extends CI_Controller {
 			$this->session->set_userdata($data);
 			//Get role and redirect to correct controller
 			switch ($data['role']) {
-				case 'patron':
+				case 'patron' :
 					redirect('user');
 					break;
-				case 'tech':
+				case 'tech' :
 					redirect('tech');
 					break;
-				case 'admin':
+				case 'admin' :
 					redirect('admin');
 					break;
 			}
-			
+
 		} else {// if the information entered is invalid
 			$data = array(
 				'main_content' => 'login',
@@ -79,7 +81,7 @@ class Login extends CI_Controller {
 			$password = $this->input->post('password');
 			$authKey = random_string('alnum', 15);
 
-			if ($this->User_model->create_user($first, $last, $email, $phone, $password, $authKey)) {// if creating the new user work
+			if ($this->User_model->create_user($first, $last, $email, $phone, $password, $authKey)) {// if inserting user data worked
 				//  setup all the mail config stuff.
 				$this->load->library('email');
 				$config['smtp_host'] = 'mail.4850project.com';

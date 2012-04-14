@@ -46,6 +46,21 @@ a:hover, a:active, a:focus {mouse. */
 	text-decoration: underline;
 	color: #09F;
 }
+.dataDisplay tr, .dataDiaplay td {
+	padding: 5px;
+	color: black;
+}
+.dataDisplay th  a:link, .dataDisplay th a:visited {
+	font-weight: bold;
+	color: black;
+	padding: 10px;
+}
+.dataDisplay th a:hover {
+	text-decoration: underline;
+}
+table .dataDisplay {
+	width: 100%;
+}
 /*
  body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.contact {
  background-color: #09F;
@@ -55,7 +70,6 @@ a:hover, a:active, a:focus {mouse. */
 	width: 1000px;
 	margin: 0 auto;
 }
-
 /*Style for header.php*/
 .header {
 	width: 1000px;
@@ -92,44 +106,41 @@ a:hover, a:active, a:focus {mouse. */
 	float: right;
 	text-align: right;
 }
-
 /*Style for main.php*/
 .contentIntro {
 	width: 1000px;
 	text-align: center;
 }
-
 /*Style for login.php & register.php*/
-.contentLoginOrRegister{
-	background-color:#333;
-	width:850px;
-	height:370px;
+.contentLoginOrRegister {
+	background-color: #333;
+	width: 850px;
+	height: 370px;
 	margin: 0 auto;
 	border-radius: 15px;
 	padding: 5px;
 }
-.contentLogin{
-	float:left;
+.contentLogin {
+	float: left;
 	width: 380px;
-	padding-left:20px;
+	padding-left: 20px;
 }
-.contentLoginInput{
+.contentLoginInput {
 	padding-left: 50px;
 	width: 300px;
-	color:#FEBC11;
-	text-align:right;
+	color: #FEBC11;
+	text-align: right;
 }
-.contentLoginSubmit{
+.contentLoginSubmit {
 	padding-left: 50px;
-	
 }
-.orBar{
-	float:left;
-	height:360px;
+.orBar {
+	float: left;
+	height: 360px;
 	/*width: 5px;*/
-	border:#000;
+	border: #000;
 	margin: 0 auto;
-	text-align:center;
+	text-align: center;
 	border-right: 1px solid #FFF;
 	padding-top: 10px;
 	/*padding-top:170px;*/
@@ -138,100 +149,97 @@ a:hover, a:active, a:focus {mouse. */
 	float: right;
 	width: 390px;
 }
-.contentRegisterInput{
+.contentRegisterInput {
 	padding-left: 75px;
 	width: 400px;
-	color:#FEBC11;
-	text-align:right;
+	color: #FEBC11;
+	text-align: right;
 }
 .submitButton {
-	text-align:left;
+	text-align: left;
 }
 .error {
 	color: #FF0000;
 }
 /*Style for contact.php*/
-.contact{
-	color:#FEBC11;
-	padding-left:40px;
+.contact {
+	color: #FEBC11;
+	padding-left: 40px;
 }
-
 /*User's page*/
 /*Style for index.php*/
-.loggedUser{
+.loggedUser {
 }
-.topContainer{
+.topContainer {
 	height: 50px;
 }
-.welcome{
-	float:left;
-	width:410px;
+.welcome {
+	float: left;
+	width: 410px;
 }
-.userNavBar{
-	float:right;
-	width:525px;
-	
-	padding-top:6px;
-	padding-bottom:6px;
-	border-radius:10px;
+.userNavBar {
+	float: right;
+	width: 525px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-radius: 10px;
 }
-ul.userNavBar{
-	
+ul.userNavBar {
+
 }
-ul.userNavBar a{
-	
+ul.userNavBar a {
+
 }
 ul.userNavBar a:hover, ul.userNavBar a:active, ul.userNavBar a:focus {
 	color: #09F;
 }
-li.userNavBar{
-	background:#333;
+li.userNavBar {
+	background: #333;
 	width: auto;
 	margin: 5px;
 	padding-left: 20px;
 }
-.bottomContainer{
-	padding-top:20px;
+.bottomContainer {
+	padding-top: 20px;
 }
 /*Style for update.php*/
-.updateUser{
-	
+.updateUser {
+
 }
-.updateInput{
+.updateInput {
 	padding-left: 50px;
 	color: #FEBC11;
 }
 /*Replaced, can be deleted
-ul.menu li {
-	display: inline-table;
-	background: #ff0000;
-	padding: 10px;
-}
-*/
+ ul.menu li {
+ display: inline-table;
+ background: #ff0000;
+ padding: 10px;
+ }
+ */
 /*Style for submit*/
 .submitRequest {
 	color: #FEBC11;
 }
-
 /*Tech's page*/
 /*Style for index.php
-Using style for user's index
-*/
-.loggedTech{	
+ Using style for user's index
+ */
+.loggedTech {
 }
 /*Style for update.php
-Using style of user's update
-*/
-.updateTech{
+ Using style of user's update
+ */
+.updateTech {
 }
-
 /*Admin's page*/
 /*Style for index.php*/
-.loggedAdmin{
-	
+.loggedAdmin {
+
 }
 /*Style for admin.php
-Using user's update
-*/
-.updateAdmin{
+ Using user's update
+ */
+.updateAdmin {
 }
+
