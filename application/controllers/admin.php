@@ -16,7 +16,8 @@ class Admin extends Admin_Controller {
 		$this->load->model('user_model');
 
 		$data = array(
-			'main_content' => 'admin/update',
+			'main_content' => 'admin/index',
+			'secondary_content' => 'update',
 			'user' => $this->user_model->get_info($this->session->userdata('email'))
 		);
 		$this->load->view('includes/template', $data);

@@ -392,3 +392,5 @@ ERROR - 2012-04-13 04:23:10 --> Severity: Notice  --> Undefined property: stdCla
 ERROR - 2012-04-13 04:23:10 --> Severity: Notice  --> Undefined property: stdClass::$5 /Applications/MAMP/htdocs/4850/application/views/tableView.php 17
 ERROR - 2012-04-13 04:23:10 --> Severity: Notice  --> Undefined property: stdClass::$6 /Applications/MAMP/htdocs/4850/application/views/tableView.php 17
 ERROR - 2012-04-13 04:23:10 --> Severity: Notice  --> ob_end_clean() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to delete buffer. No buffer to delete /Applications/MAMP/htdocs/4850/system/core/Loader.php 863
+ERROR - 2012-04-13 23:59:40 --> Severity: Warning  --> mysql_pconnect() [<a href='function.mysql-pconnect'>function.mysql-pconnect</a>]: Access denied for user 'root'@'localhost' (using password: YES) C:\wamp\www\4850\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2012-04-13 23:59:40 --> Unable to connect to the database
