@@ -42,29 +42,38 @@ class Requests_model extends CI_Model {
 		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : "report_id";
 		
 		// results query
-		if ($select_user==NULL)
+		if ($select_user==NULL){
+			//count total results of query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('Requests');
+			$tmp = $q->get()->result();
+				
 			$q = $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired')
 				->from('Requests')
 				->limit($limit, $offset)
 				->order_by($sort_by, $sort_order);
-		else
+				$ret['rows'] = $q->get()->result();
+
+		}else{
+			//count total results of query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('Requests')
+				->where('tech', $select_user)
+				->or_where('reporter', $select_user);
+			$tmp = $q->get()->result();
+			
 			$q = $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired')
 				->from('Requests')
 				->where('tech', $select_user)
 				->or_where('reporter', $select_user)
 				->limit($limit, $offset)
 				->order_by($sort_by, $sort_order);
+				$ret['rows'] = $q->get()->result();
+
+		}
 	
-		$ret['rows'] = $q->get()->result();
-		
-		// count query
-		$q = $this->db->select('COUNT(*) as count', FALSE)
-			->from('Requests');
-		
-		$tmp = $q->get()->result();
-		
-		$ret['num_rows'] = $tmp[0]->count;
-		
+			$ret['num_rows'] = $tmp[0]->count;
+				
 		return $ret;
 	}
 	
