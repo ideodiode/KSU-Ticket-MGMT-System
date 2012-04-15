@@ -28,15 +28,10 @@ class Requests_model extends CI_Model {
 	}
 	
 
-	/*function update_request($email, $firstName, $lastName, $phone) {
-		$user_data = array(
-			'firstName' => $firstName,
-			'lastName' => $lastName,
-			'phone' => $phone
-		);
-		$this->db->where('email', $email);
-		return $this->db->update('Users', $user_data);
-	}*/
+	function update($key, $id, $field, $value){
+		$this->db->where($key, $id);
+		$this->db->update('Requests', array($field=>$value));
+	}
 
 	//Search used by Tablebuilder class to pull data for paginated tables
 	function search($limit, $offset, $sort_by, $sort_order, $select_user) {
@@ -86,6 +81,48 @@ class Requests_model extends CI_Model {
 			'feedback'=> 'Feedback',
 			'isRepaired'=> 'Completed?'
 		);
+		return $fields;
+	}
+	
+	function editable_fields($role){
+		if ($role == 'admin'){
+		$fields = array(
+				'report_id'=> FALSE,
+				'tech'=> TRUE,
+				'reporter'=> FALSE,
+				'description'=> TRUE,
+				'location'=> TRUE,
+				'submissionDate'=> FALSE,
+				'completionDate'=> FALSE,
+				'feedback'=> TRUE,
+				'isRepaired'=> TRUE
+			);
+		}else if ($role == 'tech'){
+			$fields = array(
+				'report_id'=> FALSE,
+				'tech'=> FALSE,
+				'reporter'=> FALSE,
+				'description'=> TRUE,
+				'location'=> TRUE,
+				'submissionDate'=> FALSE,
+				'completionDate'=> FALSE,
+				'feedback'=> FALSE,
+				'isRepaired'=> TRUE
+			);
+		}else{
+			$fields = array(
+				'report_id'=> FALSE,
+				'tech'=> FALSE,
+				'reporter'=> FALSE,
+				'description'=> TRUE,
+				'location'=> TRUE,
+				'submissionDate'=> FALSE,
+				'completionDate'=> FALSE,
+				'feedback'=> TRUE,
+				'isRepaired'=> FALSE
+			);
+		}
+			
 		return $fields;
 	}
 }
