@@ -1,7 +1,5 @@
 <div class="updateUser">
 
-  	<h1>test</h1>
-    
 	<?php
     if (isset($message)) {
         echo '<h2>' . $message . '</h2>';

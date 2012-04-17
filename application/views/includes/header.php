@@ -23,8 +23,11 @@
 					</div><!--End of nameHolder-->
 					<div class="navBar">
 						<ul>
-							<li>Contact IT</li>
-							<li>
+							<li class="headerFooterLinks">
+								<?php echo anchor('contact', 'Contact IT'); ?>
+							</li>
+							
+							<li class="headerFooterLinks">
 								<?php
 								if ($this -> session -> userdata('logged_in')) {
 									echo anchor('logout', 'Logout');
