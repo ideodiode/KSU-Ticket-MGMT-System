@@ -4,24 +4,24 @@ class Tablebuilder {
 
     public function display($sort_by, $sort_order, $offset, $role, $table, $user_id) {
 		
-		$limit = 10; //Number of results displayed per page
+		$limit = 3; //Number of results displayed per page
 		
 		$CI =& get_instance(); //Required for library classes
 		$model_name = $table . "_model";
 		$CI->load->model($model_name);
 		
+		//Display information only for selected user if not admin
 		$select_user = $user_id;
 		if ($role == 'admin')
 			$select_user = NULL;
 		
 		$results = $CI->$model_name->search($limit, $offset, $sort_by, $sort_order, $select_user);
 		$data['fields'] = $CI->$model_name->display_fields();
-		
+		$data['editable'] = $CI->$model_name->editable_fields($role);
 		
 		//Retreive all results as well as the total number
 		$data['results'] = $results['rows'];
 		$data['num_results'] = $results['num_rows'];
-		
 		
 		// pagination
 		$CI->load->library('pagination');
