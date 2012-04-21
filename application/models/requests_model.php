@@ -28,15 +28,10 @@ class Requests_model extends CI_Model {
 	}
 	
 
-	/*function update_request($email, $firstName, $lastName, $phone) {
-		$user_data = array(
-			'firstName' => $firstName,
-			'lastName' => $lastName,
-			'phone' => $phone
-		);
-		$this->db->where('email', $email);
-		return $this->db->update('Users', $user_data);
-	}*/
+	function update($key, $id, $field, $value){
+		$this->db->where($key, $id);
+		$this->db->update('Requests', array($field=>$value));
+	}
 
 	//Search used by Tablebuilder class to pull data for paginated tables
 	function search($limit, $offset, $sort_by, $sort_order, $select_user) {
@@ -47,29 +42,38 @@ class Requests_model extends CI_Model {
 		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : "report_id";
 		
 		// results query
-		if ($select_user==NULL)
+		if ($select_user==NULL){
+			//count total results of query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('Requests');
+			$tmp = $q->get()->result();
+				
 			$q = $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired')
 				->from('Requests')
 				->limit($limit, $offset)
 				->order_by($sort_by, $sort_order);
-		else
+				$ret['rows'] = $q->get()->result();
+
+		}else{
+			//count total results of query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('Requests')
+				->where('tech', $select_user)
+				->or_where('reporter', $select_user);
+			$tmp = $q->get()->result();
+			
 			$q = $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired')
 				->from('Requests')
 				->where('tech', $select_user)
 				->or_where('reporter', $select_user)
 				->limit($limit, $offset)
 				->order_by($sort_by, $sort_order);
+				$ret['rows'] = $q->get()->result();
+
+		}
 	
-		$ret['rows'] = $q->get()->result();
-		
-		// count query
-		$q = $this->db->select('COUNT(*) as count', FALSE)
-			->from('Requests');
-		
-		$tmp = $q->get()->result();
-		
-		$ret['num_rows'] = $tmp[0]->count;
-		
+			$ret['num_rows'] = $tmp[0]->count;
+				
 		return $ret;
 	}
 	
@@ -86,6 +90,48 @@ class Requests_model extends CI_Model {
 			'feedback'=> 'Feedback',
 			'isRepaired'=> 'Completed?'
 		);
+		return $fields;
+	}
+	
+	function editable_fields($role){
+		if ($role == 'admin'){
+		$fields = array(
+				'report_id'=> FALSE,
+				'tech'=> TRUE,
+				'reporter'=> FALSE,
+				'description'=> TRUE,
+				'location'=> TRUE,
+				'submissionDate'=> FALSE,
+				'completionDate'=> FALSE,
+				'feedback'=> TRUE,
+				'isRepaired'=> TRUE
+			);
+		}else if ($role == 'tech'){
+			$fields = array(
+				'report_id'=> FALSE,
+				'tech'=> FALSE,
+				'reporter'=> FALSE,
+				'description'=> TRUE,
+				'location'=> TRUE,
+				'submissionDate'=> FALSE,
+				'completionDate'=> FALSE,
+				'feedback'=> FALSE,
+				'isRepaired'=> TRUE
+			);
+		}else{
+			$fields = array(
+				'report_id'=> FALSE,
+				'tech'=> FALSE,
+				'reporter'=> FALSE,
+				'description'=> TRUE,
+				'location'=> TRUE,
+				'submissionDate'=> FALSE,
+				'completionDate'=> FALSE,
+				'feedback'=> TRUE,
+				'isRepaired'=> FALSE
+			);
+		}
+			
 		return $fields;
 	}
 }

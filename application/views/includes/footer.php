@@ -16,6 +16,4 @@
 	</div><!--End of footerBar-->
 </div><!--End of footer-->
 
-</body>
-
-</html>
+</body> </html>

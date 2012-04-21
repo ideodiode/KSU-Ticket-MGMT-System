@@ -42,35 +42,34 @@ a:link, a:visited {
 	text-decoration: none;
 	color: #FFFFFF;
 }
-a:hover, a:active, a:focus {mouse. */
-	text-decoration: underline;
+a:hover, a:active, a:focus {
 	color: #09F;
 }
 /*Style for tableViews*/
 .displayTable{
-	padding-top:100px;
+	padding-top:40px;
 	width: 975px;
 }
-.dataDisplay tr, .dataDiaplay td {
-	padding: 5px;
-	color: black;
+.foundRequests{
+	text-align:center;
+}
+.pages{
+	text-align:right;	
+}
+table.dataDisplay {
+	margin: 0 auto;
 }
 .dataDisplay th  a:link, .dataDisplay th a:visited {
 	font-weight: bold;
 	color: black;
-	padding: 10px;
 }
 .dataDisplay th a:hover {
 	text-decoration: underline;
 }
-table .dataDisplay {
-	width: 100%;
+.dataDisplay tr, .dataDiaplay td {
+	color: black;
 }
-/*
- body.index a.index, body.about a.about, body.prjects a.projects, body.contact a.contact {
- background-color: #09F;
- }
- */
+
 .container {
 	width: 1000px;
 	margin: 0 auto;
@@ -90,21 +89,22 @@ table .dataDisplay {
 	float: right;
 	text-align: right;
 }
+
+/* Style for header and footer links */
 li.headerFooterLinks a {
 	color: #FEBC11;
 }
 li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLinks a:focus{
 	color: #09F;
 }
+
 /*Style for footer.php*/
 .footer {
-	/*height: 150px;*/
 	width: 1000px;
 	margin: 0 auto;
 	margin-top: 45px;
 	bottom: 0;
 	position: fixed;
-	
 }
 .ksuCopyright {
 	width: 350px;
@@ -149,13 +149,11 @@ li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLink
 .orBar {
 	float: left;
 	height: 360px;
-	/*width: 5px;*/
 	border: #000;
 	margin: 0 auto;
 	text-align: center;
 	border-right: 1px solid #FFF;
 	padding-top: 10px;
-	/*padding-top:170px;*/
 }
 .contentRegister {
 	float: right;
@@ -186,13 +184,12 @@ li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLink
 .loggedUser {
 }
 .topContainer {
-	height: 25px;
-	padding-top:10px;
+	height: 50px;
 }
 .welcome {
 	float: left;
 	width: 410px;
-	padding-top: 25px;
+	padding-top:25px;
 }
 .userNavBar {
 	float: right;
@@ -216,38 +213,22 @@ li.userNavBar {
 	margin: 5px;
 	padding-left: 20px;
 }
-li.userNavBarActive {
-	float:right;
-	background: #333;
-	width: auto;
-	margin: 5px;
-	padding-left: 20px;
-	padding-top: 6px;
-	padding-bottom: 6px;
-	border-radius: 10px;
-}
-li.userNavBarActive a{
-	color: #09F;
+li.userNavBar.active {
+	background: red;
+	background:#FEBC11;
 }
 .bottomContainer {
 	padding-top: 20px;
 }
 /*Style for update.php*/
-.updateUser{
-	padding-top:100px;
+.updateUser {
+	padding-top:50px;
 }
 .updateInput {
 	padding-left: 50px;
 	padding-bottom:50px;
 	color: #FEBC11;
 }
-/*Replaced, can be deleted
- ul.menu li {
- display: inline-table;
- background: #ff0000;
- padding: 10px;
- }
- */
 /*Style for submit*/
 .submitRequest {
 	color: #FEBC11;
@@ -265,7 +246,8 @@ li.userNavBarActive a{
 }
 /*Admin's page*/
 /*Style for index.php*/
-.loggedAdmin{
+.loggedAdmin {
+
 }
 /*Style for admin.php
  Using user's update

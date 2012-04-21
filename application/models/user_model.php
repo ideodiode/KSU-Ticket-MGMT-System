@@ -14,6 +14,11 @@
 			return $row->user_id;
 		}
 
+		function update($key, $id, $field, $value){
+			$this->db->where($key, $id);
+			$this->db->update('Users', array($field=>$value));
+		}
+		
 		function validate($email, $password) {
 			$this->db->where('email', $email);
 			$this->db->where('password', sha1($password));
@@ -67,29 +72,42 @@
 		}
 
 		//Search used by Tablebuilder class to pull data for paginated tables
-		function search($limit, $offset, $sort_by, $sort_order, $select_user) {
+		function search($limit, $offset, $sort_by, $sort_order, $select_user) {		
 			$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
-
-			$sort_columns = array(
-				'user_id',
-				'firstName',
-				'lastName',
-				'email',
-				'phone',
-				'role'
-			);
+			
+			$sort_columns = array('user_id', 'firstName', 'lastName', 'email', 'phone', 'role');
 			$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'ID';
-
+			
 			// results query
-			if ($select_user == NULL)
-				$q = $this->db->select('user_id, firstName, lastName, email, phone, role')->from('Users')->limit($limit, $offset)->order_by($sort_by, $sort_order);
-			else
-				$q = $this->db->select('user_id, firstName, lastName, email, phone, role')->from('Users')->where('user_id', $select_user)->limit($limit, $offset)->order_by($sort_by, $sort_order);
-			$ret['rows'] = $q->get()->result();
-
-			// count query
-
-			$ret['num_rows'] = count($ret['rows']);
+			if ($select_user==NULL){
+				//count total results of query
+				$q = $this->db->select('COUNT(*) as count', FALSE)
+					->from('Users');
+				$tmp = $q->get()->result();
+				
+				//return subset of full query for pagination
+				$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
+					->from('Users')
+					->limit($limit, $offset)
+					->order_by($sort_by, $sort_order);
+				$ret['rows'] = $q->get()->result();
+			}
+			else{
+				//count total results of query
+				$q = $this->db->select('COUNT(*) as count', FALSE)
+					->from('Users')
+					->where('user_id', $select_user);
+				$tmp = $q->get()->result();
+				
+				//return subset of full query for pagination
+				$q = $this->db->select('user_id, firstName, lastName, email, phone, role')
+					->from('Users')
+					->where('user_id', $select_user)
+					->limit($limit, $offset)
+					->order_by($sort_by, $sort_order);
+				$ret['rows'] = $q->get()->result();
+			}
+			$ret['num_rows'] = $tmp[0]->count;
 			
 			return $ret;
 		}
@@ -106,5 +124,27 @@
 			return $fields;
 		}
 
+		function editable_fields($role){
+			if ($role == 'admin'){
+				$fields = array(
+					'user_id' => FALSE,
+					'firstName' => TRUE,
+					'lastName' => TRUE,
+					'email' => TRUE,
+					'phone' => TRUE,
+					'role' => TRUE
+				);
+			}else {
+				$fields = array(
+					'user_id' => FALSE,
+					'firstName' => FALSE,
+					'lastName' => FALSE,
+					'email' => FALSE,
+					'phone' => TRUE,
+					'role' => FALSE
+				);
+			}
+			return $fields;
+		}
 	}
 ?>
