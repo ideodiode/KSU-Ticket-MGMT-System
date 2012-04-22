@@ -57,8 +57,13 @@ class User extends User_Controller {
 		$this->form_validation->set_rules('requestedTime', 'Requested appointment time', 'required');
 
 		if ($this->form_validation->run() == FALSE) {// if information in invalid
-
-			$this->load->view('includes/template', array('main_content' => 'user/submitRequest'));
+		$data = array (
+			'main_content' => 'user/index',
+			'secondary_content' => 'user/submitRequest'
+		);
+		$this->load->view('includes/template', $data);
+		
+		
 
 		} else {// if the information submitted is valid
 
@@ -74,7 +79,7 @@ class User extends User_Controller {
 			if ($this->Requests_model->create_request($userID, $description, $location)) {
 			$data = array(
 					'main_content' => 'user/index',
-					'message' => 'Your request has been submitted succesfully'
+					'message' => 'Your request has been submitted succesfully',
 				);
 				$this->load->view('includes/template', $data);
 			}
