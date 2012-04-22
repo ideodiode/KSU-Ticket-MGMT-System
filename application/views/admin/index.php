@@ -15,7 +15,8 @@
 						'admin/update' => 'Profile',
 						'admin/user_table' => 'Users',
 						'admin/requests_table' => 'Tickets',
-						'admin/schedule_table' => 'Schedule'
+						'admin/schedule_table' => 'Schedule',
+						'admin/faq' => 'FAQ'
 					);
 
 					foreach ($pages as $key => $value) { // Go through the list and look at the keys and values.
