@@ -40,7 +40,7 @@ ul, li {
 }
 a:link, a:visited {
 	text-decoration: none;
-	color: #FFFFFF;
+	color: black;
 }
 a:hover, a:active, a:focus {mouse. */
 	text-decoration: underline;
@@ -245,4 +245,28 @@ li.userNavBar.active {
  */
 .updateAdmin {
 }
-
+table {
+	color: black;
+	width: 100%;
+}
+td {
+	padding: 4px;
+	font-size: 0.9em;
+}
+thead tr th {
+	font-size: 1.1em;
+	padding: 9px;
+	text-transform: uppercase;
+}
+table tr.edit_r input {
+	display: none;
+}
+table tr.edit_r:hover {
+	background-color: red;
+}
+.hide_input {
+	display: none;
+}
+.hidden {
+	display: none;
+}
