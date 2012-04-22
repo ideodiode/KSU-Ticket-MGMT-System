@@ -69,8 +69,15 @@
 
 		function update_schedule() {
 			$schedule = $this->input->post('schedule');
+			$this->load->model('schedule');
+			
+			
 			foreach($schedule as $s ) {
-				echo $s['user_id'];
+				$day_of_week = $s['day_of_week'];
+				$user_id = $s['user_id'];
+				$time = date('H:i:s', strtotime($s['time']));
+				$when = $s['when'];
+				$this->schedule->update_schedule($user_id, $day_of_week, $when, $time);
 			}
 
 			// time comes in as 5 AM, for example.
