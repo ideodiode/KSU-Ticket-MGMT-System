@@ -71,15 +71,18 @@
 		}
 
 		function update_schedule($user_id, $day_of_week, $when, $time) {
+
+		
+
 			$data = array('day_of_week' => $day_of_week);
 			if ($when == "start") {
 				$data['start_time'] = $time;
 			} elseif ($when == "end") {
 				$data['end_time'] = $time;
 			}
+			//$this->db->where('user_id', $user_id)->where('day_of_week', $day_of_week));
 			$this->db->where('user_id', $user_id)->where('day_of_week', $day_of_week);
-			return $this->db->update('Schedule', $data);
-
+			return $this->db->update('schedule', $data);
 		}
 
 	}

@@ -267,6 +267,6 @@ table tr.edit_r:hover {
 .hide_input {
 	display: none;
 }
-.save_schedule {
+.hidden {
 	display: none;
 }

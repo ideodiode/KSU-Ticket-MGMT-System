@@ -68,13 +68,20 @@
 		}
 
 		function update_schedule() {
-			$this->load->model('schedule');
-			$user_id = $this->input->post('user_id');
-			$day_of_week = $this->input->post('day_of_week');
-			$when = $this->input->post('when');
-			$time = $this->input->post('time');
-			return $this->schedule->update_schedule($user_id, $day_of_week, $when, $time);
+			$schedule = $this->input->post('schedule');
+			foreach($schedule as $s ) {
+				echo $s['user_id'];
+			}
 
+			// time comes in as 5 AM, for example.
+			// $this->load->model('schedule');
+			// $user_id = $this->input->post('user_id');
+
+			// $day_of_week = $this->input->post('day_of_week');
+			// $when = $this->input->post('when');
+			// $time = $this->input->post('time');
+			// $time = date('H:i:s', strtotime($time));
+			// $done = $this->schedule->update_schedule($user_id, $day_of_week, $when, $time);
 		}
 
 	}
