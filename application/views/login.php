@@ -15,7 +15,7 @@
 			<table cellpadding="5">
 				<tr>
 					<td>Email Address :</td>
-					<td><?php
+					<td class="inputfield"><?php
 						echo form_input(array(
 							'name' => 'email',
 							'id' => 'email',

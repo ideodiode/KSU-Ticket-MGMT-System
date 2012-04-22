@@ -31,7 +31,7 @@
 				<td>
 					
 					<?php 
-					switch ($table){
+					switch ($table) {
 						case 'user':
 							$key = 'user_id';
 							$row_id = $result->user_id;

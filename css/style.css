@@ -58,6 +58,7 @@ a:hover, a:active, a:focus {
 }
 table.dataDisplay {
 	margin: 0 auto;
+	width: 100%;
 }
 .dataDisplay th  a:link, .dataDisplay th a:visited {
 	font-weight: bold;
@@ -68,6 +69,9 @@ table.dataDisplay {
 }
 .dataDisplay tr, .dataDiaplay td {
 	color: black;
+}
+table td input {
+	width:95%;
 }
 
 .container {
@@ -125,12 +129,13 @@ li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLink
 }
 /*Style for login.php & register.php*/
 .contentLoginOrRegister {
-	background-color: #333;
+	background-color: #444;
 	width: 850px;
 	height: 370px;
 	margin: 0 auto;
 	border-radius: 15px;
 	padding: 5px;
+	margin-top:20px;
 }
 .contentLogin {
 	float: left;
@@ -138,10 +143,15 @@ li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLink
 	padding-left: 20px;
 }
 .contentLoginInput {
-	padding-left: 50px;
+	padding-left: 20px;
 	width: 300px;
 	color: #FEBC11;
 	text-align: right;
+}
+td.inputField	{
+	border-radius: 10px;
+	background:#000;
+	background-color:#000;
 }
 .contentLoginSubmit {
 	padding-left: 50px;
@@ -160,7 +170,7 @@ li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLink
 	width: 390px;
 }
 .contentRegisterInput {
-	padding-left: 75px;
+	padding-left:10px;
 	width: 400px;
 	color: #FEBC11;
 	text-align: right;
@@ -232,6 +242,9 @@ li.userNavBar.active {
 /*Style for submit*/
 .submitRequest {
 	color: #FEBC11;
+}
+td.submitButton{
+	 
 }
 /*Tech's page*/
 /*Style for index.php
