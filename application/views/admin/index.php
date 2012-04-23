@@ -1,3 +1,4 @@
+
 <div class="loggedAdmin">
 	<div class="topContainer">
 		<div class="welcome">
@@ -15,10 +16,11 @@
 				<?php
 					$current = $this->uri->rsegment(1) . '/' . $this->uri->rsegment(2); // get the currrent page that you're on. This would be something like admin/user_table or whatever.					
 					$pages = array( // Make a list of all the pages you want
-						'admin/update' => 'Update Profile',
+						'admin/update' => 'Profile',
 						'admin/user_table' => 'Users',
 						'admin/requests_table' => 'Tickets',
-						'admin/schedule_table' => 'Schedule'
+						'admin/schedule_table' => 'Schedule',
+						'admin/faq' => 'FAQ'
 					);
 
 					foreach ($pages as $key => $value) { // Go through the list and look at the keys and values.
@@ -32,5 +34,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="bottomContainer"></div>
+	<div class="bottomContainer">
+    </div>
+    
 </div>

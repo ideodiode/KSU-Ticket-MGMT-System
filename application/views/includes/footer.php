@@ -10,7 +10,7 @@
 				Home
 			</li>
 			<li>
-				FAQs
+				<?php echo anchor('faq', 'FAQs'); ?>
 			</li>
 		</ul>
 	</div><!--End of footerBar-->
