@@ -268,7 +268,27 @@ td.submitButton{
  Using user's update
  */
 .updateAdmin {
+	
+}
 
+/*Style for faq*/
+.faq{
+	
+}
+.faq h1{
+	text-align:center;
+}
+.faq h4{
+	padding-left:50px;	
+	padding-right:50px;
+}
+.faqNew{
+	float:left;
+	padding-top:25px;
+}
+.faqDelete{
+	float:right;
+	padding-right: 200px;
 }
 /*
 table {
