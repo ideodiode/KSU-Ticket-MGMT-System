@@ -40,7 +40,7 @@ ul, li {
 }
 a:link, a:visited {
 	text-decoration: none;
-	color: black;
+	color: white;
 }
 a:hover, a:active, a:focus {
 	color: #09F;

@@ -1,3 +1,5 @@
+<div class="schedule">
+
 <?php
 	class Schedule extends CI_Model {
 
@@ -46,7 +48,7 @@
 			$data['headings'] = $headings;
 			// Data = User | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
 
-			$techs = $this->db->select('user_id')->from('users')->where('role', 'tech')->get()->result();
+			$techs = $this->db->select('user_id')->from('Users')->where('role', 'tech')->get()->result();
 			$temp = array();
 			foreach ($techs as $tech) {
 				$row = array();
@@ -54,7 +56,7 @@
 				$row['user'] = $tech->user_id;
 
 				foreach ($days_of_week as $day) {
-					$sch = $this->db->select('start_time, end_time')->from('schedule')->where('user_id', $tech->user_id)->where('day_of_week', $day)->get()->row_array();
+					$sch = $this->db->select('start_time, end_time')->from('Schedule')->where('user_id', $tech->user_id)->where('day_of_week', $day)->get()->row_array();
 					$current = array();
 					$current['start'] = $sch['start_time'];
 					$current['end'] = $sch['end_time'];
@@ -86,3 +88,7 @@
 		}
 
 	}
+	
+	?>
+
+</div>

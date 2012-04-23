@@ -1,16 +1,10 @@
-
 <div class="displayTable">
 
 	<div class="foundRequests">
 		<p>Found <?php echo $num_results . " " . $table; ?></p>
 	</div>
 	
-	<?php if (strlen($pagination)): ?>
-	<div class="pages">
-		<p>Pages: <?php echo $pagination; ?></p>
-	</div>
-	<?php endif; ?>
-	
+		
 	<?php echo validation_errors(); ?>
 	<?php echo form_open(""); ?>
 	
