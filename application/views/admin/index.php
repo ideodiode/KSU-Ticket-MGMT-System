@@ -1,11 +1,15 @@
+
 <div class="loggedAdmin">
 	<div class="topContainer">
 		<div class="welcome">
-			<h1>Welcome, <?php
+			<h1 class="inline">Welcome, </h1>
+			<h3 class="inline">
+			<?php
 				$this->load->model('user_model');
 				$user = $this->user_model->get_info($this->session->userdata('email'));
 				echo $user->firstName;
-			?></h1>
+			?>
+            </h3>
 		</div>
 		<div class="userNavBar">
 			<ul class="userNavBar">
@@ -30,5 +34,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="bottomContainer"></div>
+	<div class="bottomContainer">
+    </div>
+    
 </div>

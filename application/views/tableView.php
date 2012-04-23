@@ -1,17 +1,14 @@
-	<div>
-		Found <?php echo $num_results . " " . $table; ?> 
+<div class="displayTable">
+
+	<div class="foundRequests">
+		<p>Found <?php echo $num_results . " " . $table; ?></p>
 	</div>
 	
-	<?php if (strlen($pagination)): ?>
-	<div>
-		Pages: <?php echo $pagination; ?>
-	</div>
-	<?php endif; ?>
-	
+		
 	<?php echo validation_errors(); ?>
 	<?php echo form_open(""); ?>
 	
-	<table>
+	<table class="dataDisplay">
 		<thead>
 			<?php foreach($fields as $field_name => $field_display): ?>
 			<th <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
@@ -29,7 +26,7 @@
 				<td>
 					
 					<?php 
-					switch ($table){
+					switch ($table) {
 						case 'user':
 							$key = 'user_id';
 							$row_id = $result->user_id;
@@ -80,10 +77,12 @@
 	</form>
 	
 	<?php if (strlen($pagination)): ?>
-	<div>
-		Pages: <?php echo $pagination; ?>
+	<div class="pages">
+		<p>Pages: <?php echo $pagination; ?></p>
 	</div>
 	<?php endif; ?>
+    
+</div>    
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>	
 

@@ -1,3 +1,5 @@
+<div class="schedule">
+
 <?php
 class Schedule extends CI_Model {
 
@@ -45,7 +47,7 @@ class Schedule extends CI_Model {
 		}
 		$data['headings'] = $headings;
 		// Data = User | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
-
+			
 		$techs = $this->db->select('user_id')->from('users')->where('role', 'tech')->get()->result();
 		$temp = array();
 		foreach ($techs as $tech) {
@@ -60,7 +62,6 @@ class Schedule extends CI_Model {
 				$current['end'] = $sch['end_time'];
 				$current['type'] = 'dropdown';
 				$row[$day] = $current;
-
 			}
 			$temp[] = $row;
 		}
@@ -82,5 +83,7 @@ class Schedule extends CI_Model {
 		$this->db->where('user_id', $user_id)->where('day_of_week', $day_of_week);
 		return $this->db->update('schedule', $data);
 	}
-
 }
+?>	
+
+</div>

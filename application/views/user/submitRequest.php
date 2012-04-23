@@ -4,7 +4,7 @@
 	?>
 	<table cellpadding="10">
 		<tr>
-			<td>Location</td>
+			<td>Location :</td>
 			<td><?php
 			echo form_input(array(
 				'name' => 'location',
@@ -14,7 +14,7 @@
 			?></td>
 		</tr>
 		<tr>
-			<td>Description</td>
+			<td>Description :</td>
 			<td><?php
 			echo form_textarea(array(
 				'name' => 'description',
