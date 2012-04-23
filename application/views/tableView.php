@@ -8,6 +8,12 @@
 	</div>
 	<?php endif; ?>
 	
+	
+	<div id="ajax_message">
+		Confirm changes in a cell with the 'Enter/Return' key
+	</div>
+
+	
 	<?php echo validation_errors(); ?>
 	<?php echo form_open(""); ?>
 	
@@ -109,10 +115,8 @@
 			$('.editCheck').mousedown(function(event) {
 
 				if ($(this).attr("checked")==true){
-				
 					update($(this), '0');
 				}else{
-					
 					update($(this), '1');
 				}
 			});
@@ -129,6 +133,7 @@
 				},
 			function(data){
 				$(target).attr('value', data);
+				$("#ajax_message").html("Succesfully updated cell");
 			});
 			//alert(value);
 		}
