@@ -6,10 +6,10 @@
 	</div><!--End of ksuCopyright-->
 	<div class="footerBar">
 		<ul>
-			<li>
+			<li class="headerFooterLinks">
 				Home
 			</li>
-			<li>
+			<li class="headerFooterLinks">
 				<?php echo anchor('faq', 'FAQs'); ?>
 			</li>
 		</ul>

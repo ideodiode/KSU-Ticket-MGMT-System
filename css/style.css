@@ -241,6 +241,8 @@ li.userNavBar.active {
 }
 /*Style for submit*/
 .submitRequest {
+	padding-top:50px;
+	padding-left: 50px;
 	color: #FEBC11;
 }
 td.submitButton{
