@@ -131,7 +131,7 @@
 					'firstName' => TRUE,
 					'lastName' => TRUE,
 					'email' => TRUE,
-					'phone' => TRUE,
+					'phone' => FALSE,
 					'role' => TRUE
 				);
 			}else {

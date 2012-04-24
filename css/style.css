@@ -5,6 +5,7 @@ body {
 	background-image: url(../_images/bg.gif);
 	font-family: sans-serif;
 	color: white;
+	padding-bottom: 20px;
 }
 
 h1 {
@@ -75,18 +76,17 @@ table td input {
 .container {
 	width: 1000px;
 	margin: 0 auto;
+	height: 100%;
 }
 .header {
 	width: 1000px;
 	height: 100px;
 }
 .nameHolder {
-	width: 350px;
 	float: left;
 }
 .navBar {
 	padding-top: 25px;
-	width: 400px;
 	float: right;
 	text-align: right;
 }
@@ -103,17 +103,16 @@ li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLink
 	margin: 0 auto;
 	margin-top: 45px;
 	bottom: 0;
-	position: absolute;
 }
 .ksuCopyright {
-	width: 350px;
-	height: 100px;
 	float: left;
+}
+.ksuCopyright h2 {
+	font-size: 1.3em;
 }
 .footerBar {
 	padding-top: 25px;
 	padding-left: 100px;
-	width: 400px;
 	float: right;
 	text-align: right;
 }
@@ -235,7 +234,6 @@ li.userNavBar.active a:hover {
 	padding-bottom: 50px;
 	color: #FEBC11;
 }
-
 
 .faq h1 {
 	text-align: center;
@@ -371,10 +369,12 @@ table {
 .updateInfo input[type=submit] {
 	width: 8%;
 }
-.message {
-	color: red;
+#message {
+	color: white;
 	text-transform: uppercase;
 	font-weight: bold;
+	float: right;
+	padding: 10px;
 }
 .fadeOut {
 	display: block;
@@ -392,7 +392,7 @@ table.builder thead tr th a {
 table.builder * {
 	color: black;
 }
-table.builder td  {
+table.builder td {
 	padding: 10px;
 }
 table.builder th {
@@ -403,4 +403,33 @@ table.builder th {
 	font-size: 16px;
 	border: 1px solid black;
 	width: 16%;
+}
+.message {
+	color: red;
+}
+a.save_schedule, a.cancel_save {
+	color: black;
+	font-weight: bold;
+}
+p.message {
+	margin: 0;
+}
+.container {
+	position: relative;
+	height: 100%;
+}
+.footer {
+
+	bottom: 0;
+}
+.body {
+}
+
+.nameHolder h1 a {
+	color: #FEBC11;
+	text-shadow: 0 2px 2px black;
+	
+}
+.nameHolder h1 a:hover {
+	
 }
