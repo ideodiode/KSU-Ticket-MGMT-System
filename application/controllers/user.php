@@ -97,7 +97,6 @@
 					}
 					$this->session->set_flashdata('msg', '<p>Profile updated</p>');
 					redirect($role . '/update');
-
 				} else {
 
 				}
@@ -135,10 +134,19 @@
 				$requestedTime = $this->input->post('requestedTime');
 				$speciality = $this->input->post('speciality');
 				$userID = $this->session->userdata('id');
-				if ($this->Requests_model->create_request($userID, $description, $location, $speciality)) {
+				if ($this->Requests_model->create_request($userID, $description, $location, $speciality)) {// if inserting worked
 					$this->session->set_flashdata('msg', 'Request submitted');
-					redirect('');
+					redirect('user/submit_request');
 
+				} else {
+					$this->session->set_flashdata('msg', 'Please try again');
+					$data = array(
+						'main_content' => 'user/index',
+						'secondary_content' => 'user/submitRequest',
+						'user' => $this->user_model->get_info($this->session->userdata('email')),
+						'specs' => $this->speciality_model->get_specialities()
+					);
+					$this->load->view('includes/template', $data);
 				}
 			}
 		}
