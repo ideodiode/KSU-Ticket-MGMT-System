@@ -120,6 +120,16 @@
 			return $roles;
 		}
 		
+		function get_techs() {
+			$q = $this->db->select('user_id, firstName, lastName')
+			->from('Users')
+			->where('role', 'tech');
+			foreach ($q->get()->result() as $row){
+				$techs[$row->user_id] = $row->firstName. " " .$row->lastName;
+			}
+			return $techs;
+		}
+		
 		function display_fields() {
 			$fields = array(
 				'user_id' => 'ID',

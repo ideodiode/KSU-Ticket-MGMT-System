@@ -32,16 +32,15 @@ class Ajax extends CI_Controller {
 	
 	$this->load->model($model);
 	if($value==true){
-		$this->load->helper('date');
-		$format = 'DATE_RFC822';
 		$time = time();
-		$this->$model->update($key, $row_id, $field, standard_date($format, $time));
+		$this->$model->update($key, $row_id, $field, date('Y-m-d H:i:s', 0));
+
+		echo date('Y-m-d H:i:s', $time);
+	}else{
+		$this->$model->update($key, $row_id, $field, '0000-00-00 00:00:00');
+		echo '0000-00-00 00:00:00';
 	}
-	else
-		$this->$model->update($key, $row_id, $field, 0);
 
-
-    echo $value;
   }
 
 }

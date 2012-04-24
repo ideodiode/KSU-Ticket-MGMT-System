@@ -72,15 +72,24 @@
 						echo "<span>".$result->$field_name."</span>";
 						
 						//create drop down for role
-					}else if ($field_name=='role'){
-						echo form_dropdown($key.$field_name, $all_roles, $result->$field_name,
-						'id = "'.$key.$field_name.'"
-						table = "'.$table.'"
-						field = "'.$field_name.'"
-						row_id = "'.$row_id.'"
-						key = "'.$key.'"
-						class = "editDropdown"');
-						echo "<span>".$result->$field_name."</span>";
+					}else if ($field_name=='role'||$field_name=='tech'){
+						if ($field_name=='role')	
+							echo form_dropdown($key.$field_name, $all_roles, $result->$field_name,
+							'id = "'.$key.$field_name.'"
+							table = "'.$table.'"
+							field = "'.$field_name.'"
+							row_id = "'.$row_id.'"
+							key = "'.$key.'"
+							class = "editDropdown"');
+						else
+							echo form_dropdown($key.$field_name, $all_techs, $result->$field_name,
+							'id = "'.$key.$field_name.'"
+							table = "'.$table.'"
+							field = "'.$field_name.'"
+							row_id = "'.$row_id.'"
+							key = "'.$key.'"
+							class = "editDropdown"');
+						echo "<span>".$all_techs[$result->$field_name]."</span>";
 						
 						//create standard textbox input	for other fields
 					}else if($editable[$field_name]){
@@ -224,7 +233,7 @@
 		}
 		
 		function updateTime(target, key, value1){
-			$.post("<?php echo base_url();?>/index.php/ajax/update", {
+			$.post("<?php echo base_url();?>/index.php/ajax/updateTime", {
 				value: value1,
 				table: key.attr("table"),
 				field: "completionDate",
