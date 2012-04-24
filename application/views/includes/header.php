@@ -31,6 +31,8 @@
 								<?php
 								if ($this -> session -> userdata('logged_in')) {
 									echo anchor('logout', 'Logout');
+								} else {
+									echo anchor('login', 'Login');
 								}
 								?>
 							</li>

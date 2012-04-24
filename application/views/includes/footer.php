@@ -1,5 +1,3 @@
-
-
 <div class="footer">
 	<div class="ksuCopyright">
 		<h2> Kennesaw State Unviersity</h2>
@@ -7,7 +5,7 @@
 	<div class="footerBar">
 		<ul>
 			<li>
-				Home
+				<?php echo anchor('main', 'Home'); ?>
 			</li>
 			<li>
 				<?php echo anchor('faq', 'FAQs'); ?>

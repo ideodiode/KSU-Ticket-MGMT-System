@@ -3,7 +3,7 @@
 class Requests_model extends CI_Model {
 	
 	//function adds request to database, uses scheduling algorithm to choose technician
-	function create_request($reporterID, $description, $location) {
+	function create_request($reporterID, $description, $location, $speciality) {
 		//
 		//Insert function that handles scheduling algorithm
 		//
@@ -21,7 +21,8 @@ class Requests_model extends CI_Model {
 			'description' => $description,
 			'location' => $location,
 			'submissionDate' => $submissionDate,
-			'isRepaired' => 1
+			'isRepaired' => 1, 
+			'speciality' => $speciality
 		);
 		$insert = $this->db->insert('Requests', $requests_data);
 		return $insert;
