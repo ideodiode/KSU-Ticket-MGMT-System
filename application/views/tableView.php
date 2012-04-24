@@ -3,9 +3,7 @@
 	</div>
 	
 	<?php if (strlen($pagination)): ?>
-	<div>
-		Pages: <?php echo $pagination; ?>
-	</div>
+	
 	<?php endif; ?>
 	
 	<?php echo validation_errors(); ?>
@@ -80,7 +78,7 @@
 	</form>
 	
 	<?php if (strlen($pagination)): ?>
-	<div>
+	<div class="right">
 		Pages: <?php echo $pagination; ?>
 	</div>
 	<?php endif; ?>

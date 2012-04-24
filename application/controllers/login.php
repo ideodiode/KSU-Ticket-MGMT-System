@@ -58,6 +58,9 @@ class Login extends CI_Controller {
 
 		// set a custom error for when the email is already in the db.
 		$this->form_validation->set_message('is_unique', "That email address already has an account");
+		$this->form_validation->set_message('min_length', 'Your password must be at least 4 characters.');
+		$this->form_validation->set_message('valid_email', 'Your email address is invalid.');
+		$this->form_validation->set_message('numeric', 'Invalid phone number. Must only contain numbers.');
 
 		$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email|is_unique[Users.email]');
 		$this->form_validation->set_rules('password', 'Passowrd', 'trim|required|min_length[4]|max_length[32]');

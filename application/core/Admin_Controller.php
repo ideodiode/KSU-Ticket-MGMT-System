@@ -6,7 +6,7 @@
 			$this->load->model('user_model');
 			$user = $this->user_model->get_info($this->session->userdata('email'));
 
-			if (!$this->session->userdata('logged_in') || $user->role != 'admin') {// if not logged in and not an admin
+			if (!$this->session->userdata('logged_in') || $user->role != 'admin') {// if not logged in or not an admin
 				redirect('');
 			}
 		}

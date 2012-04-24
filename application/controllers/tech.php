@@ -14,7 +14,6 @@ class Tech extends Tech_Controller {
 
 	function update() {
 		$this->load->model('user_model');
-
 		$data = array(
 			'main_content' => 'tech/index',
 			'secondary_content' => 'update',
@@ -48,10 +47,6 @@ class Tech extends Tech_Controller {
 	}
 
 
-	function user_table($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
-		$this->load->library('tablebuilder');
-		$this->tablebuilder->display($sort_by, $sort_order, $offset, 'tech', 'user', $this->session->userdata('id'));
-	}
 	
 	function requests_table($sort_by = 'request_id', $sort_order = 'asc', $offset = 0) {
 		$this->load->library('tablebuilder');

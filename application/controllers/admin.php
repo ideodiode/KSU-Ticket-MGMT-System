@@ -14,14 +14,12 @@ class Admin extends Admin_Controller {
 
 	function update() {
 		$this->load->model('user_model');
-
 		$data = array(
 			'main_content' => 'admin/index',
 			'secondary_content' => 'update',
 			'user' => $this->user_model->get_info($this->session->userdata('email'))
 		);
 		$this->load->view('includes/template', $data);
-
 	}
 
 	function update_info() {
@@ -60,7 +58,6 @@ class Admin extends Admin_Controller {
 	function schedule_table($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
 		$this->load->model('schedule');
 		$table_data = $this->schedule->get_schedule();
-
 		$content['main_content'] = 'admin/index';
 		$content['secondary_content'] = 'admin/schedule_table';
 		$content['table'] = $table_data;
@@ -78,6 +75,7 @@ class Admin extends Admin_Controller {
 			$when = $s['when'];
 			$this->schedule->update_schedule($user_id, $day_of_week, $when, $time);
 		}
+		redirect('admin/schedule_table');
 
 	}
 

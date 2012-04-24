@@ -4,7 +4,7 @@ class Tablebuilder {
 
     public function display($sort_by, $sort_order, $offset, $role, $table, $user_id) {
 		
-		$limit = 3; //Number of results displayed per page
+		$limit = 10; //Number of results displayed per page
 		
 		$CI =& get_instance(); //Required for library classes
 		$model_name = $table . "_model";
