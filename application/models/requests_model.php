@@ -9,10 +9,6 @@ class Requests_model extends CI_Model {
 		//
 		$techID = 6; //Placeholder
 		
-		$this->load->helper('date');
-		$datestring = "Year: %Y Month: %m Day: %d - %h:%i %a";
-		$time = time();
-		
 		$submissionDate = mdate($datestring, $time);
 		
 		$requests_data = array(
@@ -20,7 +16,6 @@ class Requests_model extends CI_Model {
 			'reporter' => $reporterID,
 			'description' => $description,
 			'location' => $location,
-			'submissionDate' => $submissionDate,
 			'isRepaired' => 1, 
 			'speciality' => $speciality
 		);
@@ -78,6 +73,13 @@ class Requests_model extends CI_Model {
 		return $ret;
 	}
 	
+	function get_techs() {
+		$q = $this->db->select('user_id, firstName, lastName')
+			->from('Users')
+			->where('role', 'tech');
+		$tmp = $q->get()->result();
+	}
+	
 	function display_fields() {
 	
 		$fields = array(
@@ -86,8 +88,8 @@ class Requests_model extends CI_Model {
 			'reporter'=> 'User',
 			'description'=> 'Description',
 			'location'=> 'Location',
-			'submissionDate'=> 'Submission Date (M/D/Y)',
-			'completionDate'=> 'Completion Date (M/D/Y)',
+			'submissionDate'=> 'Submission Date',
+			'completionDate'=> 'Completion Date',
 			'feedback'=> 'Feedback',
 			'isRepaired'=> 'Completed?'
 		);

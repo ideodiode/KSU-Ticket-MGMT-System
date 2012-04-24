@@ -27,11 +27,14 @@ class Tablebuilder {
 		$CI->load->library('pagination');
 		$config = array();
 		
-		/*
-		/
-		/Needs to edited for AJAX
-		/
-		/*/
+		//Special data passing for specific tables
+		//Users table
+		if ($table=='user'){
+			$data['all_roles'] = $CI->user_model->get_roles();
+		} else if ($table=='requests'){
+			$CI->load->model("user_model");
+			$data['all_techs'] = $CI->user_model->get_techs();
+		}
 		
 		$config['base_url'] = site_url($role . "/" . $table . "_table/$sort_by/$sort_order");
 		$config['total_rows'] = $data['num_results'];
