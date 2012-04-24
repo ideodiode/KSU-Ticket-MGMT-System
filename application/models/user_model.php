@@ -49,7 +49,11 @@
 			foreach ($q->get()->result() as $row) {
 				$techs[$row->user_id] = $row->firstName . " " . $row->lastName;
 			}
+			echo $techs;
 			return $techs;
+		}
+		function get_tech_ids() {
+			return $this->db->select('user_id')->from('users')->where('role','tech')->get()->result_array();
 		}
 
 		function activate_user($authKey) {

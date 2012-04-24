@@ -73,7 +73,7 @@
 						
 						//create drop down for role
 					}else if ($field_name=='role'||$field_name=='tech'){
-						if ($field_name=='role')	
+						if ($field_name=='role'){
 							echo form_dropdown($key.$field_name, $all_roles, $result->$field_name,
 							'id = "'.$key.$field_name.'"
 							table = "'.$table.'"
@@ -81,7 +81,8 @@
 							row_id = "'.$row_id.'"
 							key = "'.$key.'"
 							class = "editDropdown"');
-						else
+							echo "<span>".$result->$field_name."</span>";
+							} else{
 							echo form_dropdown($key.$field_name, $all_techs, $result->$field_name,
 							'id = "'.$key.$field_name.'"
 							table = "'.$table.'"
@@ -89,9 +90,10 @@
 							row_id = "'.$row_id.'"
 							key = "'.$key.'"
 							class = "editDropdown"');
-						echo "<span>".$all_techs[$result->$field_name]."</span>";
+							echo "<span>".$all_techs[$result->$field_name]."</span>";
 						
 						//create standard textbox input	for other fields
+						}
 					}else if($editable[$field_name]){
 						echo form_input($input);
 						echo "<span>".$result->$field_name."</span>";
@@ -191,10 +193,10 @@
 			$('.editCheck').mouseup(function(event) {
 				var $date_field = $(this).parents('tr').children().children('.completionDate');
 				if ($(this).attr("checked")==true){
-					updateTime($date_field, $(this), false);
+					updateTime($date_field, $(this), 0);
 					update($(this), '0');
 				}else{
-					updateTime($date_field, $(this), true);
+					updateTime($date_field, $(this), 1);
 					update($(this), '1');
 				}
 				$current_row = "";

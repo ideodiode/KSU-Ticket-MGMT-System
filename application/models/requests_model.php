@@ -7,7 +7,19 @@
 			//
 			//Insert function that handles scheduling algorithm
 			//
-			$techID = 6;
+			$this->load->model('user_model');
+			$techs = $this->user_model->get_tech_ids();
+			//print_r($techs);
+			$tech[] = array();
+			foreach ($techs as $t) {
+				$tech[] = $t['user_id'];
+			}
+
+			foreach ($tech as $t) {
+				//	echo $t;
+			}
+			$techID = $tech[array_rand($tech)];
+			//$techID = $tech[array_rand($tech[0])];
 			//Placeholder
 
 			//$submissionDate = date();
@@ -17,15 +29,15 @@
 				'reporter' => $reporterID,
 				'description' => $description,
 				'location' => $location,
-				'isRepaired' => 1,
+				'isRepaired' => 0,
 				'speciality' => $speciality
 			);
-			$insert = $this->db->insert('Requests', $requests_data);
+			$insert = $this->db->insert('requests', $requests_data);
 			return $insert;
 		}
 
 		function need_feedback($id) {
-			return $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired, speciality')->from('requests')->where('feedback', NULL)->where('reporter', $id)->get()->result();
+			return $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired, speciality')->from('requests')->where('feedback', NULL)->where('reporter', $id)->where('isRepaired','1')->get()->result();
 
 		}
 
@@ -40,7 +52,7 @@
 
 		function update_request($feedback, $report_id) {
 			$data = array('feedback' => $feedback);
-			
+
 			$this->db->where('report_id', $report_id);
 			return $this->db->update('requests', $data);
 		}
@@ -73,10 +85,10 @@
 
 			} else {
 				//count total results of query
-				$q = $this->db->select('COUNT(*) as count', FALSE)->from('Requests')->where('tech', $select_user)->or_where('reporter', $select_user);
+				$q = $this->db->select('COUNT(*) as count', FALSE)->from('requests')->where('tech', $select_user)->or_where('reporter', $select_user);
 				$tmp = $q->get()->result();
 
-				$q = $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired')->from('Requests')->where('tech', $select_user)->or_where('reporter', $select_user)->limit($limit, $offset)->order_by($sort_by, $sort_order);
+				$q = $this->db->select('report_id, tech, reporter, description, location, submissionDate, completionDate, feedback, isRepaired')->from('requests')->where('tech', $select_user)->or_where('reporter', $select_user)->limit($limit, $offset)->order_by($sort_by, $sort_order);
 				$ret['rows'] = $q->get()->result();
 
 			}
@@ -87,7 +99,7 @@
 		}
 
 		function get_techs() {
-			$q = $this->db->select('user_id, firstName, lastName')->from('Users')->where('role', 'tech');
+			$q = $this->db->select('user_id, firstName, lastName')->from('users')->where('role', 'tech');
 			$tmp = $q->get()->result();
 		}
 
