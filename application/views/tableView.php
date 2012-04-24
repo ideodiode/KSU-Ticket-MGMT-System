@@ -3,9 +3,7 @@
 	</div>
 	
 	<?php if (strlen($pagination)): ?>
-	<div>
-		Pages: <?php echo $pagination; ?>
-	</div>
+	
 	<?php endif; ?>
 	
 	
@@ -17,7 +15,7 @@
 	<?php echo validation_errors(); ?>
 	<?php echo form_open(""); ?>
 	
-	<table>
+	<table class="builder">
 		<thead>
 			<?php foreach($fields as $field_name => $field_display): ?>
 			<th <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
@@ -86,7 +84,8 @@
 	</form>
 	
 	<?php if (strlen($pagination)): ?>
-	<div>
+	
+	<div class="right">
 		Pages: <?php echo $pagination; ?>
 	</div>
 	<?php endif; ?>
@@ -95,10 +94,7 @@
 
 	<script type="text/javascript" charset="utf-8">
 		$('tr:odd').css('background', '#e3e3e3');
-		$('tr:even').css('background', '#FEBC11');
-
-		
-		
+		$('tr:even').css('background', '#FEBC11');		
 		
 		$(document).ready(function() {
 			$('.editText').keyup(function(event) {

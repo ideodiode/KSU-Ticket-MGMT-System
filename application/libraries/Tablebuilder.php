@@ -4,7 +4,7 @@ class Tablebuilder {
 
     public function display($sort_by, $sort_order, $offset, $role, $table, $user_id) {
 		
-		$limit = 3; //Number of results displayed per page
+		$limit = 10; //Number of results displayed per page
 		
 		$CI =& get_instance(); //Required for library classes
 		$model_name = $table . "_model";
@@ -44,6 +44,8 @@ class Tablebuilder {
 		$data['sort_order'] = $sort_order;
 		$data['role'] = $role;
 		$data['table'] = $table;
+		
+		$data['user'] = $CI->user_model->get_info($CI->session->userdata('email'));
 		
 		
 		$data['main_content'] = $role . '/index';
