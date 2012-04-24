@@ -1,5 +1,4 @@
 <div class="updateInfo">
-	<h3>Update your info</h3>
 
 	<?php echo form_open('user/update_info'); ?>
 

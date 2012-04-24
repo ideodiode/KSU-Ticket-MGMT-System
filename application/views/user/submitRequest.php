@@ -42,7 +42,5 @@
 		echo form_close();
 	?>
 
-	<?php
-		echo validation_errors();
-	?>
+	
 </div>

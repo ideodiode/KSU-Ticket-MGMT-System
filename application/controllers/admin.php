@@ -22,29 +22,6 @@
 			$this->load->view('includes/template', $data);
 		}
 
-		function update_info() {
-			$this->load->library('form_validation');
-			$this->form_validation->set_rules('firstName', 'First Name', 'trim|required');
-			$this->form_validation->set_rules('lastName', 'Last Name', 'trim|required');
-			$this->form_validation->set_rules('phone', 'Phone number', 'numeric');
-
-			if (!$this->form_validation->run()) {// if the validation fails
-			} else {
-				$this->load->model('user_model');
-				if ($this->user_model->update_user($this->session->userdata('email'), $this->input->post('firstName'), $this->input->post('lastName'), $this->input->post('phone'))) {// if we successfully update the user information
-					$data = array(
-						'main_content' => 'tech/update',
-						'user' => $this->user_model->get_info($this->session->userdata('email')),
-						'message' => 'Successfully updated your info'
-					);
-					$this->load->view('includes/template', $data);
-				} else {
-
-				}
-			}
-
-		}
-
 		function user_table($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
 			$this->load->library('tablebuilder');
 			$this->tablebuilder->display($sort_by, $sort_order, $offset, 'admin', 'user', $this->session->userdata('id'));
@@ -98,7 +75,7 @@
 			for ($i = 0; $i < sizeof($data); $i++) {
 				$this->faq_model->delete_question($data[$i]);
 			}
-			redirect('admin/faq');
+			$this->session->set_flashdata('msg', 'Selected FAQs deleted') . redirect('admin/faq');
 
 		}
 
@@ -108,7 +85,7 @@
 			$this->form_validation->set_rules('answer', 'Answer', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
-				$this->session->set_flashdata('msg',  validation_errors());
+				$this->session->set_flashdata('msg', validation_errors());
 				redirect('admin/faq');
 			} else {
 				$this->load->model('faq_model');
@@ -136,7 +113,9 @@
 			$this->form_validation->set_rules('desc', 'Description', 'required|max_length[100]');
 
 			if ($this->form_validation->run() == FALSE) {
-				$this->session->set_flashdata('error', 'Validation failed');
+				$this->session->set_flashdata('msg', validation_errors());
+				redirect('admin/speciality');
+
 			} else {
 				$this->load->model('speciality_model');
 				$name = $this->input->post('name');
@@ -155,8 +134,7 @@
 			for ($i = 0; $i < sizeof($data); $i++) {
 				$this->speciality_model->delete_speciality($data[$i]);
 			}
-			$this->session->set_flashdata('msg','Selected specalities deleted').
-			redirect('admin/speciality');
+			$this->session->set_flashdata('msg', 'Selected specalities deleted') . redirect('admin/speciality');
 		}
 
 	}

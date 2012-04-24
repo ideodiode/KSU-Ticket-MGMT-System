@@ -2,7 +2,13 @@
 
 <div class="topContainer">
 <div class="welcome">
-<h1>Welcome, <?php echo $user->firstName; ?></h1>
+	<?php $name = $user->firstName;
+
+	if (strlen($name) > 10) {
+		$name = substr($name, 0, 4) . '...';
+	}
+ ?>
+<h1>Welcome, <?php echo $name; ?></h1>
 </div>
 <div class="userNavBar">
 <ul class="userNavBar">
@@ -50,7 +56,7 @@
 	if($('#message').length > 0) {
 		$('#message').addClass('fadeOut');
 		$('#message').find('p').addClass('message');
-		//$('#message').fadeOut(3000);
+		$('#message').fadeOut(3000);
 	}
 
 </script>
