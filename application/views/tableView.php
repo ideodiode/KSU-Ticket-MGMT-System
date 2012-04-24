@@ -73,7 +73,7 @@
 						
 						//create drop down for role
 					}else if ($field_name=='role'||$field_name=='tech'){
-						if ($field_name=='role')	
+						if ($field_name=='role'){
 							echo form_dropdown($key.$field_name, $all_roles, $result->$field_name,
 							'id = "'.$key.$field_name.'"
 							table = "'.$table.'"
@@ -81,7 +81,8 @@
 							row_id = "'.$row_id.'"
 							key = "'.$key.'"
 							class = "editDropdown"');
-						else
+							echo "<span>".$result->$field_name."</span>";
+							} else{
 							echo form_dropdown($key.$field_name, $all_techs, $result->$field_name,
 							'id = "'.$key.$field_name.'"
 							table = "'.$table.'"
@@ -89,9 +90,10 @@
 							row_id = "'.$row_id.'"
 							key = "'.$key.'"
 							class = "editDropdown"');
-						echo "<span>".$all_techs[$result->$field_name]."</span>";
+							echo "<span>".$all_techs[$result->$field_name]."</span>";
 						
 						//create standard textbox input	for other fields
+						}
 					}else if($editable[$field_name]){
 						echo form_input($input);
 						echo "<span>".$result->$field_name."</span>";

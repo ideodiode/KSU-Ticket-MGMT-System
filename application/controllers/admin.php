@@ -27,7 +27,7 @@
 			$this->tablebuilder->display($sort_by, $sort_order, $offset, 'admin', 'user', $this->session->userdata('id'));
 		}
 
-		function requests_table($sort_by = 'request_id', $sort_order = 'asc', $offset = 0) {
+		function requests_table($sort_by = 'report_id', $sort_order = 'asc', $offset = 0) {
 			$this->load->library('tablebuilder');
 			$this->tablebuilder->display($sort_by, $sort_order, $offset, 'admin', 'requests', $this->session->userdata('id'));
 		}
