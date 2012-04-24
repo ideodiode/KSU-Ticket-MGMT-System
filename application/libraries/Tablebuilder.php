@@ -45,6 +45,8 @@ class Tablebuilder {
 		$data['role'] = $role;
 		$data['table'] = $table;
 		
+		$data['user'] = $CI->user_model->get_info($CI->session->userdata('email'));
+		
 		
 		$data['main_content'] = $role . '/index';
 		$data['title'] = $role . ' Page';

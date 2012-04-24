@@ -66,7 +66,8 @@
 			if ($this->form_validation->run() == FALSE) {// if information in invalid
 				$data = array(
 					'main_content' => 'user/index',
-					'secondary_content' => 'user/submitRequest'
+					'secondary_content' => 'user/submitRequest',
+					'user' => $this->user_model->get_info($this->session->userdata('email'))
 				);
 				$this->load->view('includes/template', $data);
 
@@ -83,12 +84,14 @@
 				if ($this->Requests_model->create_request($userID, $description, $location)) {
 					$data = array(
 						'main_content' => 'user/index',
-						'message' => 'Your request has been submitted succesfully',
+						'user' => $this->user_model->get_info($this->session->userdata('email'))
 					);
 					$this->load->view('includes/template', $data);
 				}
 			}
 		}
+
+	
 
 		function requests_table($sort_by = 'user_id', $sort_order = 'asc', $offset = 0) {
 			$this->load->library('tablebuilder');

@@ -5,7 +5,7 @@
 	<div class="footerBar">
 		<ul>
 			<li>
-				<?php echo anchor('', 'Home'); ?>
+				<?php echo anchor('main', 'Home'); ?>
 			</li>
 			<li>
 				<?php echo anchor('faq', 'FAQs'); ?>

@@ -14,7 +14,6 @@
 	$('h3').next('h4').hide();
 	$('h3').click(function() {
 		$(this).next('h4').toggle();
-		console.log($(this));
 	});
 
 	$('h3').css('cursor', 'pointer');

@@ -37,12 +37,12 @@ ul, li {
 	display: inline;
 	padding-right: 20px;
 }
-a:link, a:visited {
+a, a:visited {
 	text-decoration: none;
 	color: white;
 }
 a:hover, a:active, a:focus {
-	color: #09F;
+	color: #FEBC11;
 }
 .displayTable {
 	padding-top: 40px;
@@ -103,7 +103,7 @@ li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLink
 	margin: 0 auto;
 	margin-top: 45px;
 	bottom: 0;
-	position: fixed;
+	position: absolute;
 }
 .ksuCopyright {
 	width: 350px;
@@ -193,7 +193,7 @@ td.inputField {
 }
 .userNavBar {
 	float: right;
-	width: 525px;
+	width: 620px;
 	padding-top: 6px;
 	padding-bottom: 6px;
 	border-radius: 10px;
@@ -204,9 +204,7 @@ ul.userNavBar {
 ul.userNavBar a {
 
 }
-ul.userNavBar a:hover, ul.userNavBar a:active, ul.userNavBar a:focus {
-	color: #09F;
-}
+
 li.userNavBar {
 	background: #333;
 	width: auto;
@@ -221,7 +219,10 @@ li.userNavBar.active  a {
 	font-weight: bold;
 }
 li.userNavBar a:hover {
-	color: #999;
+	color: #FEBC11;
+}
+li.userNavBar.active a:hover {
+	color: #444444;
 }
 .bottomContainer {
 	padding-top: 20px;
@@ -234,11 +235,7 @@ li.userNavBar a:hover {
 	padding-bottom: 50px;
 	color: #FEBC11;
 }
-.submitRequest {
-	padding-top: 50px;
-	padding-left: 50px;
-	color: #FEBC11;
-}
+
 
 .faq h1 {
 	text-align: center;
@@ -255,23 +252,23 @@ li.userNavBar a:hover {
 	float: right;
 	padding-right: 200px;
 }
-.faqAdd label {
+.faq label, .request label {
 	margin-left: 10px;
 }
-.faqAdd input, .faqAdd  textarea {
+.faq input, .faq  textarea, .spec input, .spec textarea, .request input, .request textarea {
 	padding: 9px;
 	border: 1px solid #FEBC11;
 	font: normal 13px/100% Verdana, Tahoma, sans-serif;
 }
-.faqAdd textarea {
+.faq textarea, .request textarea {
 	line-height: 150%;
 	min-height: 300px;
 	min-width: 600px;
 }
-.faqAdd input[type=text] {
+.faq input[type=text], .desc input[type=text] {
 	width: 300px;
 }
-.faqAdd input:hover, .faqAdd  input:focus, .faqAdd  textarea:hover, .faqAdd  textarea:focus {
+.faq input:hover, .faq  input:focus, .faq textarea:hover, .faq  textarea:focus, .spec input:hover, .spec  input:focus, .spec textarea:hover, .spec  textarea:focus {
 	border: 1px solid black;
 }
 
@@ -305,7 +302,7 @@ li.userNavBar a:hover {
 .loginRegister  form {
 	padding: 20px;
 }
-.loginRegister input, .loginRegister  input[type=password] {
+.loginRegister input, .loginRegister  input[type=password], .updateInfo input {
 	padding: 6px;
 	width: 65%;
 	outline: none;
@@ -335,18 +332,16 @@ table {
 .left {
 	float: left;
 }
-.loginRegister label {
+.loginRegister label, .updateInfo label, .updateInfo input[type=submit] {
 	display: block;
 	margin-top: 10px;
 }
-.faqAdd .delete input[type=checkbox] {
-	background-color: red;
-}
-.faqAdd .add {
+
+.faq .delete, .spec .delete {
 	border-top: 1px solid #ccc;
 	margin-top: 30px;
 }
-.faqAdd .delete input[type=submit] {
+.faq .delete input[type=submit], .spec .add input[type=text], .spec .add input[type=submit] {
 	margin-top: 10px;
 }
 .hidden {
@@ -369,4 +364,37 @@ table {
 }
 .schedule form select {
 	font-size: 0.8em;
+}
+.updateInfo input[type=text], .updateInfo input[type=tel] {
+	width: 30%;
+}
+.updateInfo input[type=submit] {
+	width: 8%;
+}
+.message {
+	color: red;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.fadeOut {
+	display: block;
+	border: 1px solid black;
+	padding: 5px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	text-align: right;
+}
+table.builder thead tr th a {
+	color: black;
+	text-transform: uppercase;
+}
+table.builder * {
+	color: black;
+}
+table.builder td  {
+	padding: 10px;
+}
+table.builder th {
+	padding: 5px;
 }

@@ -1,10 +1,12 @@
 <div class="topContainer">
 	<div class="welcome">
-		<h1>Welcome, <?php
-			$this->load->model('user_model');
-			$user = $this->user_model->get_info($this->session->userdata('email'));
-			echo $user->firstName;
-		?></h1>
+		<?php
+			$name = $user->firstName;
+			if (strlen($name) > 7) {
+				$name = substr($name, 0, 3) . '..';
+			}
+		?>
+		<h1>Welcome, <?php echo $name; ?></h1>
 	</div>
 	<div class="userNavBar">
 		<ul class="userNavBar">
@@ -16,7 +18,8 @@
 					'admin/user_table' => 'Users',
 					'admin/requests_table' => 'Tickets',
 					'admin/schedule_table' => 'Schedule',
-					'admin/faq' => 'FAQ'
+					'admin/faq' => 'FAQ',
+					'admin/speciality' => 'Specialties'
 				);
 
 				foreach ($pages as $key => $value) {// Go through the list and look at the keys and values.
@@ -32,12 +35,24 @@
 	</div>
 
 </div>
-<div class="message">
-	<?php
-		echo $this->session->flashdata('msg');
-	?>
-</div>
+
 <?php if($current == 'admin/index') :
 ?>
 <h4>Select a page above.</h4>
-<?php	endif; ?>
+<?php	endif;
+
+	if ($this->session->flashdata('msg') != ''):
+?>
+<div id="message">
+	<?php echo $this->session->flashdata('msg'); ?>
+</div>
+<?php endif; ?>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	if($('#message').length > 0) {
+		$('#message').addClass('fadeOut');
+		$('#message').find('p').addClass('message');
+		$('#message').fadeOut(2000);
+	}
+</script>

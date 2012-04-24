@@ -1,37 +1,38 @@
-<div class="submitRequest">
+<div class="request">
 	<?php
-	echo form_open('user/submit_request');
+		echo form_open('user/submit_request');
 	?>
-	<table cellpadding="10">
-		<tr>
-			<td>Location</td>
-			<td><?php
+	<p>
+		<?php
 			echo form_input(array(
+				'id' => 'location',
 				'name' => 'location',
 				'placeholder' => '',
-				'value' => set_value('location', '')
+				'value' => set_value('location', ''),
+				'required' => ''
 			));
-			?></td>
-		</tr>
-		<tr>
-			<td>Description</td>
-			<td><?php
+		?>
+
+		<label for="location">Location</label>
+	</p>
+	<p>
+		<?php
 			echo form_textarea(array(
 				'name' => 'description',
-				'placeholder' => '',
-				'value' => set_value('description', '')
+				'id' => 'description',
+				'min_height' => '300px',
+				'placeholder' => 'Description of the issue',
+				'value' => set_value('description', ''),
+				'required' => ''
 			));
-			?></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php
-			echo form_submit('submit', 'Submit Request');
-			echo form_close();
-			?></td>
-		</tr>
-	</table>
+		?>
+	</p>
 	<?php
-	echo validation_errors();
+		echo form_submit('submit', 'Submit Request');
+		echo form_close();
+	?>
+
+	<?php
+		echo validation_errors();
 	?>
 </div>

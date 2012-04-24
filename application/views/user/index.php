@@ -2,7 +2,7 @@
 
 <div class="topContainer">
 <div class="welcome">
-<?php $email = $this->session->userdata('email'); ?><h1>Welcome, <?php echo $this->user_model->get_info($email)->firstName; ?></h1>
+<h1>Welcome, <?php echo $user->firstName; ?></h1>
 </div>
 <div class="userNavBar">
 <ul class="userNavBar">
@@ -11,7 +11,7 @@
 	$pages = array(
 		'user/update' => 'Profile',
 		'user/requests_table' => 'History',
-		'user/submit_request' => 'Request'
+		'user/submit_request' => 'Create Request'
 	);
 	foreach ($pages as $key => $value) {// Go through the list and look at the keys and values.
 		if ($key == $current) {// If you're on a page, echo out the active thing.
@@ -32,12 +32,25 @@
 				echo $message;
 		?>
 	</div>
-	<div class="message">
-		<?php echo $this->session->flashdata('msg'); ?>
-	</div>
 
 </div>
 <?php if($current == 'user/index') :
 ?>
 <h4>Select a page above.</h4>
-<?php	endif; ?>
+<?php	endif;
+	if ($this->session->flashdata('msg') != ''):
+ ?>
+<div id="message">
+	<?php echo $this->session->flashdata('msg'); ?>
+</div>
+<?php endif; ?>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	if($('#message').length > 0) {
+		$('#message').addClass('fadeOut');
+		$('#message').find('p').addClass('message');
+		$('#message').fadeOut(2000);
+	}
+
+</script>
