@@ -193,10 +193,10 @@
 			$('.editCheck').mouseup(function(event) {
 				var $date_field = $(this).parents('tr').children().children('.completionDate');
 				if ($(this).attr("checked")==true){
-					updateTime($date_field, $(this), false);
+					updateTime($date_field, $(this), 0);
 					update($(this), '0');
 				}else{
-					updateTime($date_field, $(this), true);
+					updateTime($date_field, $(this), 1);
 					update($(this), '1');
 				}
 				$current_row = "";

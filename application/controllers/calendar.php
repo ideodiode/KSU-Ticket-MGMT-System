@@ -1,7 +1,7 @@
 <?php
 
 class calendar extends CI_Controller {
-	function index() {
+	function display() {
 		$prefs = array(
 			'show_next_prev' => TRUE,
 			'next_prev_url' => site_url('calendar/index')

@@ -36,9 +36,9 @@ class Ajax extends CI_Controller {
 		$this->$model->update($key, $row_id, $field, date('Y-m-d H:i:s', 0));
 
 		echo date('Y-m-d H:i:s', $time);
-	}else{
+	}else if ($value==false){
 		$this->$model->update($key, $row_id, $field, '0000-00-00 00:00:00');
-		echo '0000-00-00 00:00:00';
+		echo "0000-00-00 00:00:00";
 	}
 
   }
