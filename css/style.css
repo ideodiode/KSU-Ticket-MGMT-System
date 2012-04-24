@@ -176,10 +176,9 @@ td.inputField {
 .inline {
 	display: inline;
 }
-.contact {
-	color: #FEBC11;
-	padding-left: 40px;
-}
+
+	
+	
 
 .loggedUser {
 }
@@ -250,15 +249,15 @@ li.userNavBar.active a:hover {
 	float: right;
 	padding-right: 200px;
 }
-.faq label, .request label {
+.faq label, .request label, .contact label {
 	margin-left: 10px;
 }
-.faq input, .faq  textarea, .spec input, .spec textarea, .request input, .request textarea {
+.faq input, .faq  textarea, .spec input, .spec textarea, .request input, .request textarea, .contact input, .contact textarea {
 	padding: 9px;
 	border: 1px solid #FEBC11;
 	font: normal 13px/100% Verdana, Tahoma, sans-serif;
 }
-.faq textarea, .request textarea {
+.faq textarea, .request textarea, .contact textarea {
 	line-height: 150%;
 	min-height: 300px;
 	min-width: 600px;
@@ -330,7 +329,7 @@ table {
 .left {
 	float: left;
 }
-.loginRegister label, .updateInfo label, .updateInfo input[type=submit] {
+.loginRegister label, .updateInfo label, .updateInfo input[type=submit], .update input[type=submit], .contact input[type=submit] {
 	display: block;
 	margin-top: 10px;
 }
@@ -428,8 +427,7 @@ p.message {
 .nameHolder h1 a {
 	color: #FEBC11;
 	text-shadow: 0 2px 2px black;
-	
 }
 .nameHolder h1 a:hover {
-	
+
 }

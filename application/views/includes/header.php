@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="header">
 				<div class="nameHolder">
-					<h1><?php echo anchor('','Service Management System'); ?></h1>
+					<h1><?php echo anchor('', 'Service Management System'); ?></h1>
 				</div><!--End of nameHolder-->
 				<div class="navBar">
 					<ul>
