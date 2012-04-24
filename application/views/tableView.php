@@ -78,9 +78,7 @@
 	</form>
 	
 	<?php if (strlen($pagination)): ?>
-		<div class="left">
-			Save
-		</div>
+	
 	<div class="right">
 		Pages: <?php echo $pagination; ?>
 	</div>
@@ -90,10 +88,7 @@
 
 	<script type="text/javascript" charset="utf-8">
 		$('tr:odd').css('background', '#e3e3e3');
-		$('tr:even').css('background', '#FEBC11');
-
-		
-		
+		$('tr:even').css('background', '#FEBC11');		
 		
 		$(document).ready(function() {
 			$('.editText').keyup(function(event) {

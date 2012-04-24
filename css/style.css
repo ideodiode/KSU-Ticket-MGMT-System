@@ -341,7 +341,7 @@ table {
 	border-top: 1px solid #ccc;
 	margin-top: 30px;
 }
-.faq .delete input[type=submit], .spec .add input[type=text], .spec .add input[type=submit] {
+.faq .delete input[type=submit], .spec .add input[type=text], .spec .add input[type=submit], .spec .delete input[type=submit] {
 	margin-top: 10px;
 }
 .hidden {
@@ -397,4 +397,10 @@ table.builder td  {
 }
 table.builder th {
 	padding: 5px;
+}
+.request select {
+	padding: 5px;
+	font-size: 16px;
+	border: 1px solid black;
+	width: 16%;
 }

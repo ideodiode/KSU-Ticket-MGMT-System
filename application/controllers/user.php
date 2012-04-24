@@ -59,15 +59,17 @@
 		function submit_request() {
 			$this->load->library('form_validation');
 			$this->load->model('User_model');
+			$this->load->model('speciality_model');
 			$this->form_validation->set_rules('description', 'Description of issue', 'required');
 			$this->form_validation->set_rules('location', 'Location of issue', 'required');
-			$this->form_validation->set_rules('requestedTime', 'Requested appointment time', 'required');
+		//	$this->form_validation->set_rules('requestedTime', 'Requested appointment time', 'required');
 
 			if ($this->form_validation->run() == FALSE) {// if information in invalid
 				$data = array(
 					'main_content' => 'user/index',
 					'secondary_content' => 'user/submitRequest',
-					'user' => $this->user_model->get_info($this->session->userdata('email'))
+					'user' => $this->user_model->get_info($this->session->userdata('email')),
+					'specs' => $this->speciality_model->get_specialities()
 				);
 				$this->load->view('includes/template', $data);
 
@@ -79,14 +81,11 @@
 				$description = $this->input->post('description');
 				$location = $this->input->post('location');
 				$requestedTime = $this->input->post('requestedTime');
-
+				$speciality = $this->input->post('speciality');
 				$userID = $this->session->userdata('id');
-				if ($this->Requests_model->create_request($userID, $description, $location)) {
-					$data = array(
-						'main_content' => 'user/index',
-						'user' => $this->user_model->get_info($this->session->userdata('email'))
-					);
-					$this->load->view('includes/template', $data);
+				if ($this->Requests_model->create_request($userID, $description, $location, $speciality)) {
+					$this->session->set_flashdata('msg', 'Request submitted');
+					redirect('user/submit_request');
 				}
 			}
 		}

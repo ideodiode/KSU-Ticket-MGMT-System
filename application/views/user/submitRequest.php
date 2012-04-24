@@ -27,6 +27,16 @@
 			));
 		?>
 	</p>
+	<p>
+		<?php
+			$options = array();
+			foreach ($specs as $s) {
+				$options[$s->speciality_id] = $s->name;
+			}
+			echo form_dropdown('speciality', $options);
+		?>
+		<label>Type of issue</label>
+	</p>
 	<?php
 		echo form_submit('submit', 'Submit Request');
 		echo form_close();

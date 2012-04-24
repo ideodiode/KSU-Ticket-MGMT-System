@@ -108,8 +108,8 @@
 			$this->form_validation->set_rules('answer', 'Answer', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
-				$this->session->set_flashdata('error', 'Validation failed');
-				echo 'failure!';
+				$this->session->set_flashdata('msg',  validation_errors());
+				redirect('admin/faq');
 			} else {
 				$this->load->model('faq_model');
 				$question = $this->input->post('question');
