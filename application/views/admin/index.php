@@ -53,6 +53,6 @@
 	if($('#message').length > 0) {
 		$('#message').addClass('fadeOut');
 		$('#message').find('p').addClass('message');
-		$('#message').fadeOut(2000);
+		$('#message').fadeOut(5000);
 	}
 </script>

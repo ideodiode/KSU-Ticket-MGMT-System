@@ -5,13 +5,13 @@
 	<div class="footerBar">
 		<ul>
 			<li>
-				<?php echo anchor('main', 'Home'); ?>
+				<?php echo anchor('contact', 'Contact IT'); ?>
 			</li>
 			<li>
 				<?php echo anchor('faq', 'FAQs'); ?>
 			</li>
 		</ul>
 	</div><!--End of footerBar-->
-</div><!--End of footer-->
+	<!--End of footer-->
 
-</body> </html>
+	</body> </html>
