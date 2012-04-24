@@ -112,6 +112,14 @@
 			return $ret;
 		}
 
+		function get_roles() {
+			$roles = array(
+				'patron' => 'Patron',
+				'tech' => 'Tech',
+				'admin' => 'Admin');
+			return $roles;
+		}
+		
 		function display_fields() {
 			$fields = array(
 				'user_id' => 'ID',
