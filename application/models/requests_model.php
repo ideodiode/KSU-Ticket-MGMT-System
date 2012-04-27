@@ -149,7 +149,7 @@
 					'report_id' => FALSE,
 					'tech' => FALSE,
 					'reporter' => FALSE,
-					'description' => TRUE,
+					'description' => FALSE,
 					'location' => TRUE,
 					'submissionDate' => FALSE,
 					'completionDate' => FALSE,

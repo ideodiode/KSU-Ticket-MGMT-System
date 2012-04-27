@@ -49,7 +49,7 @@
 			foreach ($q->get()->result() as $row) {
 				$techs[$row->user_id] = $row->firstName . " " . $row->lastName;
 			}
-			echo $techs;
+			//echo $techs;
 			return $techs;
 		}
 		function get_tech_ids() {
