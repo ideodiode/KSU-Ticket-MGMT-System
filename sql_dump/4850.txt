@@ -1,26 +1,96 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9.2
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 13, 2012 at 08:35 PM
--- Server version: 5.5.9
--- PHP Version: 5.3.6
+-- Generation Time: Apr 27, 2012 at 04:23 PM
+-- Server version: 5.1.61
+-- PHP Version: 5.2.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 --
--- Database: `4850` this is some new crap. something something something
--- Changed something for someone.
+-- Database: `proj4850_4850`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Requests`
+-- Table structure for table `appointments`
 --
 
-CREATE TABLE `Requests` (
+CREATE TABLE IF NOT EXISTS `appointments` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) NOT NULL DEFAULT '',
+  `date` date NOT NULL,
+  `timeslot` time NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `description`, `date`, `timeslot`) VALUES
+(1, 'Fix my computer', '2012-04-10', '13:00:00'),
+(2, 'Fix my computer', '2012-04-04', '11:00:00'),
+(4, 'Where are you?', '2012-04-13', '17:30:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `availability`
+--
+
+CREATE TABLE IF NOT EXISTS `availability` (
+  `emp_id` int(11) DEFAULT NULL,
+  `dayofweek` tinyint(1) DEFAULT NULL COMMENT '0-6 (Sunday through Saturday)',
+  `starttime` time DEFAULT NULL,
+  `endtime` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `availability`
+--
+
+INSERT INTO `availability` (`emp_id`, `dayofweek`, `starttime`, `endtime`) VALUES
+(1001, 2, '08:00:00', '17:00:00'),
+(1002, 2, '15:00:00', '23:00:00'),
+(1002, 4, '14:00:00', '20:00:00'),
+(1001, 5, '02:00:00', '12:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq`
+--
+
+CREATE TABLE IF NOT EXISTS `faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` text NOT NULL,
+  `answer` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `faq`
+--
+
+INSERT INTO `faq` (`id`, `question`, `answer`) VALUES
+(1, 'This is a question?', 'This is an answer.'),
+(3, 'How many are there?', 'Impossible to tell.'),
+(4, 'Who are you?', 'Dunno.'),
+(9, 'field', 'required?'),
+(11, 'test question', 'test answer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requests`
+--
+
+CREATE TABLE IF NOT EXISTS `requests` (
   `report_id` int(11) NOT NULL AUTO_INCREMENT,
   `tech` int(4) NOT NULL COMMENT 'user_id',
   `reporter` int(4) NOT NULL COMMENT 'user_id',
@@ -30,55 +100,118 @@ CREATE TABLE `Requests` (
   `completionDate` timestamp NULL DEFAULT NULL,
   `feedback` longtext,
   `isRepaired` int(1) NOT NULL,
-  PRIMARY KEY (`report_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `speciality` tinyint(4) NOT NULL,
+  PRIMARY KEY (`report_id`),
+  KEY `tech` (`tech`),
+  KEY `reporter` (`reporter`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `requests`
 --
 
+INSERT INTO `requests` (`report_id`, `tech`, `reporter`, `description`, `location`, `submissionDate`, `completionDate`, `feedback`, `isRepaired`, `speciality`) VALUES
+(14, 22, 8, 'something', 'something', '2012-04-24 23:20:13', NULL, NULL, 0, 1),
+(15, 22, 8, 'hahah!', 'A new request', '2012-04-24 23:26:56', NULL, NULL, 0, 1),
+(16, 12, 8, 'my laptop screen keeps going off', 'Kennesaw', '2012-04-24 23:58:45', NULL, NULL, 0, 1),
+(17, 12, 8, 'test', 'test', '2012-04-25 00:12:51', NULL, NULL, 0, 12),
+(18, 12, 8, 'something', 'something', '2012-04-25 00:13:04', NULL, NULL, 0, 1),
+(19, 12, 28, 'test', 'SO', '2012-04-25 00:13:53', NULL, NULL, 0, 5),
+(20, 12, 28, 'test', 'SO', '2012-04-25 00:14:46', NULL, NULL, 0, 5),
+(21, 22, 29, 'my laptop is too slow', 'Abidjan', '2012-04-25 00:14:56', NULL, NULL, 0, 1),
+(22, 22, 8, 'I made a request. Something something something.', 'Request', '2012-04-25 00:27:13', NULL, NULL, 0, 1),
+(23, 12, 31, 'test', 'test', '2012-04-25 00:44:24', NULL, NULL, 0, 1),
+(24, 22, 31, 'more', 'more', '2012-04-25 00:44:59', NULL, NULL, 0, 1),
+(25, 12, 8, 'asdf', 'asdf', '2012-04-25 01:00:12', NULL, NULL, 0, 12),
+(26, 12, 8, 'adsf', 'adf', '2012-04-25 04:48:59', NULL, NULL, 0, 13);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Speciality`
+-- Table structure for table `schedule`
 --
 
-CREATE TABLE `Speciality` (
+CREATE TABLE IF NOT EXISTS `schedule` (
+  `id` tinyint(5) NOT NULL AUTO_INCREMENT,
+  `user_id` tinyint(4) NOT NULL,
+  `day_of_week` enum('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday') NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=63 ;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`id`, `user_id`, `day_of_week`, `start_time`, `end_time`) VALUES
+(7, 12, 'Monday', '05:00:00', '19:00:00'),
+(8, 12, 'Tuesday', '03:00:00', '22:00:00'),
+(9, 12, 'Wednesday', '00:00:00', '02:00:00'),
+(12, 12, 'Thursday', '05:00:00', '15:00:00'),
+(13, 12, 'Friday', '03:00:00', '20:00:00'),
+(14, 22, 'Monday', '02:00:00', '18:00:00'),
+(15, 22, 'Tuesday', '00:00:00', '00:00:00'),
+(16, 22, 'Wednesday', '19:00:00', '00:00:00'),
+(17, 22, 'Thursday', '14:00:00', '10:00:00'),
+(18, 22, 'Friday', '14:00:00', '00:00:00'),
+(19, 22, 'Saturday', '14:00:00', '00:00:00'),
+(20, 22, 'Sunday', '14:00:00', '00:00:00'),
+(44, 12, 'Saturday', '03:00:00', '21:00:00'),
+(55, 12, 'Sunday', '00:00:00', '00:00:00'),
+(56, 7, 'Monday', '00:00:00', '00:00:00'),
+(57, 7, 'Tuesday', '00:00:00', '00:00:00'),
+(58, 7, 'Wednesday', '00:00:00', '00:00:00'),
+(59, 7, 'Thursday', '00:00:00', '00:00:00'),
+(60, 7, 'Friday', '00:00:00', '00:00:00'),
+(61, 7, 'Saturday', '00:00:00', '00:00:00'),
+(62, 7, 'Sunday', '00:00:00', '00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `speciality`
+--
+
+CREATE TABLE IF NOT EXISTS `speciality` (
   `speciality_id` int(4) NOT NULL AUTO_INCREMENT,
   `desc` varchar(100) NOT NULL,
-  `name` varchar(10) NOT NULL,
+  `name` varchar(30) NOT NULL,
   PRIMARY KEY (`speciality_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `speciality`
 --
 
+INSERT INTO `speciality` (`speciality_id`, `desc`, `name`) VALUES
+(1, 'Fixing of laptops', 'Laptop repair'),
+(5, 'Repair', 'Desktop'),
+(6, 'Here', 'Something'),
+(12, 'zxcvzxcv', 'zxzxcv'),
+(13, 'zxczxc', 'zxczxc'),
+(14, 'zxc', 'zxc'),
+(15, 'zxczxc', 'ZXczxc');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Techs`
+-- Table structure for table `techs`
 --
 
-CREATE TABLE `Techs` (
+CREATE TABLE IF NOT EXISTS `techs` (
   `user_id` int(4) NOT NULL,
-  `speciality_id` int(4) NOT NULL
+  `speciality_id` int(4) NOT NULL,
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `techs`
---
-
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `Users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(4) NOT NULL AUTO_INCREMENT,
   `firstName` varchar(20) NOT NULL,
   `lastName` varchar(30) NOT NULL,
@@ -86,9 +219,40 @@ CREATE TABLE `Users` (
   `phone` varchar(10) DEFAULT NULL,
   `password` varchar(40) NOT NULL,
   `role` enum('admin','tech','patron') NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `authenticated` tinyint(1) NOT NULL,
+  `auth_key` varchar(15) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
--- Dumping data for table `Users`
+-- Dumping data for table `users`
 --
+
+INSERT INTO `users` (`user_id`, `firstName`, `lastName`, `email`, `phone`, `password`, `role`, `authenticated`, `auth_key`) VALUES
+(2, 'test123123', 'bender', 'ben@gmail.comasdfsadf', '4047549926', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, ''),
+(4, 'asdf', 'asdf', 'asdf@asdf.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'admin', 0, ''),
+(7, 'John', 'Smith', 'jsmith@gmail.com', '1234567890', '3da541559918a808c2402bba5012f6c60b27661c', 'tech', 0, 'tmedwgDKAgdzWIs'),
+(8, 'WWWWWWWWWadfasdf', 'smith', 'user@user.com', '123411', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'patron', 1, ''),
+(10, 'Ron', 'McCrary', 'admin@admin.com', '4047549926', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'admin', 1, ''),
+(12, 'Asdf', 'asdf', 'tech@tech.com', '4047549926', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'tech', 1, ''),
+(13, 'bensmcc', 'bensmcc', 'bensmcc+3@gmail.com', '', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, 'j8jxJDtrd9CENsj'),
+(14, 'ben', 'someone', 'bensmcc+6@gmail.com', '1234567890', '3da541559918a808c2402bba5012f6c60b27661c', 'admin', 1, '4iFsacMiPLRA68O'),
+(22, 'Technical', 'Person', 'testadmin@testadmin.com', NULL, '3da541559918a808c2402bba5012f6c60b27661c', 'tech', 1, ''),
+(23, 'ben', 'ben', 'someone@gmail.com', '', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, 'FEHbXfw3tgsK8Bn'),
+(24, 'benm', 'mcc', 'bensmcc+12345@gmail.com', '4047549926', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, 'ogCJM7BVbaTOR2b'),
+(25, 'benm', 'mcc', '123123@1234.com', '111', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 0, 'PbD8hAa3iW1g7rR'),
+(28, 'Fabrice', 'Ahebee', 'fab327@hotmail.com', '404', 'd14fb5bf3afc59d02aa89a1271de22cce768e733', 'patron', 1, 'uXj64d31ALxd7oS'),
+(29, 'Ibrahime', 'Balde', 'coast04@gmail.com', '6784928263', 'ceb7f5b5bc2234e7eda5231e0f2720b949635fdd', 'patron', 1, 'FdPPDiQT2lgEGqL'),
+(30, 'bob', 'thebuilder', 'ibalde@students.kennesaw.edu', '911', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 1, 'THE9SjtlXVBqOI8'),
+(31, 'benben', 'mcc', 'bensmcc@gmail.com', '4047549926', '3da541559918a808c2402bba5012f6c60b27661c', 'patron', 1, 'rX5FjTSAjQXoNf8');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `techs`
+--
+ALTER TABLE `techs`
+  ADD CONSTRAINT `Techs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;

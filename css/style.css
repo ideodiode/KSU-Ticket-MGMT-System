@@ -1,6 +1,441 @@
+@charset "utf-8";
+/* CSS Document */
+
 body {
+	background-image: url(../_images/bg.gif);
 	font-family: sans-serif;
+	color: white;
+	padding-bottom: 20px;
+}
+
+h1 {
+	font-size: 35px;
+	color: #FFF;
+}
+
+h2 {
+	color: #FEBC11;
+}
+
+h3 {
+	font-size: 28px;
+	color: #999;
+}
+
+h4 {
+	font-size: 20px;
+	color: #FFF;
+}
+h5 {
+	font-size: 16px;
+	color: #555;
+}
+p {
+	color: #999;
+}
+ul, li {
+	color: #FEBC11;
+	display: inline;
+	padding-right: 20px;
+}
+a, a:visited {
+	text-decoration: none;
+	color: white;
+}
+a:hover, a:active, a:focus {
+	color: #FEBC11;
+}
+.displayTable {
+	padding-top: 40px;
+	width: 975px;
+}
+.foundRequests {
+	text-align: center;
+}
+.pages {
+	text-align: right;
+}
+table.dataDisplay {
+	margin: 0 auto;
+	width: 100%;
+}
+.dataDisplay th  a:link, .dataDisplay th a:visited {
+	font-weight: bold;
+	color: black;
+}
+.dataDisplay th a:hover {
+	text-decoration: underline;
+}
+.dataDisplay tr, .dataDiaplay td {
+	color: black;
+}
+table td input {
+	width: 95%;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	height: 100%;
+}
+.header {
+	width: 1000px;
+	height: 100px;
+}
+.nameHolder {
+	float: left;
+}
+.navBar {
+	padding-top: 25px;
+	float: right;
+	text-align: right;
+}
+
+li.headerFooterLinks a {
+	color: #FEBC11;
+}
+li.headerFooterLinks a:hover, li.headerFooterLinks a:active, li.headerFooterLinks a:focus {
+	color: #09F;
+}
+
+.footer {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 45px;
+	bottom: 0;
+}
+.ksuCopyright {
+	float: left;
+}
+.ksuCopyright h2 {
+	font-size: 1.3em;
+}
+.footerBar {
+	padding-top: 25px;
+	padding-left: 100px;
+	float: right;
+	text-align: right;
+}
+.contentIntro {
+	width: 1000px;
+	text-align: center;
+}
+.contentLoginOrRegister {
+	background-color: #444;
+	width: 850px;
+	height: 370px;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 5px;
+	margin-top: 20px;
+}
+.contentLogin {
+	float: left;
+	width: 380px;
+	padding-left: 20px;
+}
+.contentLoginInput {
+	padding-left: 20px;
+	width: 300px;
+	color: #FEBC11;
+	text-align: right;
+}
+td.inputField {
+	border-radius: 10px;
+	background: #000;
+	background-color: #000;
+}
+.contentLoginSubmit {
+	padding-left: 50px;
+}
+.orBar {
+	float: left;
+	height: 360px;
+	border: #000;
+	margin: 0 auto;
+	text-align: center;
+	border-right: 1px solid #FFF;
+	padding-top: 10px;
+}
+.contentRegister {
+	float: right;
+	width: 390px;
+}
+.contentRegisterInput {
+	padding-left: 10px;
+	width: 400px;
+	color: #FEBC11;
+	text-align: right;
+}
+.submitButton {
+	text-align: left;
 }
 .error {
+	color: #FF0000;
+}
+.inline {
+	display: inline;
+}
+
+.loggedUser {
+}
+.topContainer {
+	height: 95px;
+}
+.welcome {
+	float: left;
+	padding: auto 0;
+}
+.userNavBar {
+	float: right;
+	width: 620px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-radius: 10px;
+}
+ul.userNavBar {
+
+}
+ul.userNavBar a {
+
+}
+
+li.userNavBar {
+	background: #333;
+	width: auto;
+	margin-left: 10px;
+	padding-left: 20px;
+}
+li.userNavBar.active {
+	background: #FEBC11;
+}
+li.userNavBar.active  a {
+	color: black;
+	font-weight: bold;
+}
+li.userNavBar a:hover {
+	color: #FEBC11;
+}
+li.userNavBar.active a:hover {
+	color: #444444;
+}
+.bottomContainer {
+	padding-top: 20px;
+}
+.updateUser {
+	padding-top: 50px;
+}
+.updateInput {
+	padding-left: 50px;
+	padding-bottom: 50px;
+	color: #FEBC11;
+}
+
+.faq h1 {
+	text-align: center;
+}
+.faq h4 {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.faqNew {
+	float: left;
+	padding-top: 25px;
+}
+.faqDelete {
+	float: right;
+	padding-right: 200px;
+}
+.faq label, .request label, .contact label {
+	margin-left: 10px;
+}
+.faq input, .faq  textarea, .spec input, .spec textarea, .request input, .request textarea, .contact input, .contact textarea {
+	padding: 9px;
+	border: 1px solid #FEBC11;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+}
+.faq textarea, .request textarea, .contact textarea {
+	line-height: 150%;
+	min-height: 300px;
+	min-width: 600px;
+}
+.faq input[type=text], .desc input[type=text] {
+	width: 300px;
+}
+.faq input:hover, .faq  input:focus, .faq textarea:hover, .faq  textarea:focus, .spec input:hover, .spec  input:focus, .spec textarea:hover, .spec  textarea:focus {
+	border: 1px solid black;
+}
+
+.loginRegister {
+	margin: 0 auto;
+	width: 700px;
+	background-color: #444;
+	overflow: auto;
+	padding: 5px 20px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+}
+
+.loginRegister .login {
+	float: left;
+	width: 49%;
+	height: 100%;
+}
+.loginRegister .register {
+	width: 49%;
+	border-left: 2px solid white;
+}
+.loginRegister h1 {
+	text-align: center;
+}
+
+.loginRegister .register {
+	float: right;
+}
+
+.loginRegister  form {
+	padding: 20px;
+}
+.loginRegister input, .loginRegister  input[type=password], .updateInfo input {
+	padding: 6px;
+	width: 65%;
+	outline: none;
+	border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	-webkit-border-radius: 0.4em;
+	border: 1px solid black;
+	display: block;
+}
+.loginRegister  input[type=submit] {
+	display: block;
+	padding: 5px;
+	width: 75px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	margin-top: 10px;
+}
+
+table {
+	width: 100%;
+}
+
+.right {
+	float: right;
+}
+.left {
+	float: left;
+}
+.loginRegister label, .updateInfo label, .updateInfo input[type=submit], .update input[type=submit], .contact input[type=submit] {
+	display: block;
+	margin-top: 10px;
+}
+
+.faq .delete, .spec .delete {
+	border-top: 1px solid #ccc;
+	margin-top: 30px;
+}
+.faq .delete input[type=submit], .spec .add input[type=text], .spec .add input[type=submit], .spec .delete input[type=submit] {
+	margin-top: 10px;
+}
+.hidden {
+	display: none;
+}
+.block {
+	display: block;
+}
+.schedule table {
+	color: black;
+}
+.schedule table thead tr th {
+	text-transform: uppercase;
+}
+.schedule table td {
+	padding: 10px;
+}
+.bold {
+	font-weight: bo
+}
+.schedule form select {
+	font-size: 0.8em;
+}
+.updateInfo input[type=text], .updateInfo input[type=tel] {
+	width: 30%;
+}
+.updateInfo input[type=submit] {
+	width: 8%;
+}
+#message {
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	float: right;
+	padding: 10px;
+}
+.fadeOut {
+	display: block;
+	border: 1px solid black;
+	padding: 5px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	text-align: right;
+}
+table.builder thead tr th a {
+	color: black;
+	text-transform: uppercase;
+}
+table.builder * {
+	color: black;
+}
+table.builder td {
+	padding: 10px;
+}
+table.builder th {
+	padding: 5px;
+}
+.request select {
+	padding: 5px;
+	font-size: 16px;
+	border: 1px solid black;
+	width: 16%;
+}
+.message {
 	color: red;
+}
+a.save_schedule, a.cancel_save {
+	color: black;
+	font-weight: bold;
+}
+p.message {
+	margin: 0;
+}
+.container {
+	position: relative;
+	height: 100%;
+}
+.footer {
+
+	bottom: 0;
+}
+.body {
+}
+
+.nameHolder h1 a {
+	color: #FEBC11;
+	text-shadow: 0 2px 2px black;
+}
+.nameHolder h1 a:hover {
+
+}
+.regError p {
+	color: red;
+}
+.center {
+	margin: 0 auto;
+}
+.emailSent {
+	text-align: center;
+	font-size: 1.3em;
+	color: #FEBC11;
 }
