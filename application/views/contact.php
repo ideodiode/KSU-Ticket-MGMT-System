@@ -1,4 +1,11 @@
 <h1>Contact us</h1>
+<?php if ($this->session->flashdata('msg') != ''):
+?>
+<div id="message">
+	<?php echo $this->session->flashdata('msg'); ?>
+</div>
+<?php endif; ?>
+
 
 <div class="contact">
 	<?php
@@ -30,6 +37,8 @@
 		<?php echo form_input(array(
 			'name' => 'email',
 			'id' => 'email',
+			'required' => '',
+			'type' => 'email',
 			'value' => $email
 		));
 		?><label for="email">Email</label>
@@ -59,3 +68,13 @@
 
 	<?php echo form_close(); ?>
 </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	if($('#message').length > 0) {
+		$('#message').addClass('fadeOut');
+		$('#message').find('p').addClass('message');
+		$('#message').fadeOut(5000);
+	}
+
+</script>

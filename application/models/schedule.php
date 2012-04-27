@@ -55,7 +55,18 @@
 
 				foreach ($days_of_week as $day) {
 					$sch = $this->db->select('start_time, end_time')->from('schedule')->where('user_id', $tech->user_id)->where('day_of_week', $day)->get()->row_array();
+					if ($sch == NULL) {
+						$insert = array(
+							'start_time' => '00:00:00',
+							'end_time' => '00:00:00',
+							'day_of_week' => $day,
+							'user_id' => $tech->user_id
+						);
+						$this->db->insert('schedule', $insert);
+						$sch = $this->db->select('start_time, end_time')->from('schedule')->where('user_id', $tech->user_id)->where('day_of_week', $day)->get()->row_array();
+					}
 					$current = array();
+
 					$current['start'] = $sch['start_time'];
 					$current['end'] = $sch['end_time'];
 					$current['type'] = 'dropdown';
