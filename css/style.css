@@ -428,3 +428,14 @@ p.message {
 .nameHolder h1 a:hover {
 
 }
+.regError p {
+	color: red;
+}
+.center {
+	margin: 0 auto;
+}
+.emailSent {
+	text-align: center;
+	font-size: 1.3em;
+	color: #FEBC11;
+}

@@ -84,6 +84,7 @@
 		var id = $(this).attr('data-user-id');
 		$(this).parents('tr').find('.hidden').toggle();
 		$(this).parents('tr').find('.row_' + id).toggle();
+			
 	});
 
 	$('.save_schedule').click(function() {

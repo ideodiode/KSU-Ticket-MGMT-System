@@ -1,7 +1,3 @@
-<div class="message">
-	<?php echo $this->session->flashdata('msg'); ?>
-</div>
-
 <div class="loginRegister">
 	<div class="login">
 		<h1>Login</h1>
@@ -94,3 +90,19 @@
 	</div>
 
 </div>
+<div class="regError">
+	<?php
+		if (isset($errors)) {
+			echo $errors;
+
+		}
+	?>
+</div>
+<div class="emailSent">
+	<?php
+		if ($this->session->flashdata('email') != '') {
+			echo $this->session->flashdata('email');
+		}
+	?>
+</div>
+
